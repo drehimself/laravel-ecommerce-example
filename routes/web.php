@@ -1,0 +1,3 @@
+<?php
+
+Route::view('/', 'main');
