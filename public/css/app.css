@@ -224,13 +224,24 @@ img {
   background: #e9e9e9;
 }
 
-header {
+.products-section {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 60px 30px;
+}
+
+header.with-background {
   background: url("/img/triangles.svg");
   background-size: cover;
   color: #e9e9e9;
 }
 
-header .top-nav {
+header.with-background .top-nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -240,9 +251,73 @@ header .top-nav {
   padding: 40px 0;
 }
 
+header.with-background .top-nav .logo {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+header.with-background .top-nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-transform: uppercase;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 40%;
+}
+
+header.with-background .top-nav ul a {
+  color: #e9e9e9;
+}
+
+header.with-background .top-nav ul a:hover {
+  color: #d0cfcf;
+}
+
+header.with-background .hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  padding-top: 20px;
+  padding-bottom: 84px;
+}
+
+header.with-background .hero .hero-image {
+  padding-left: 60px;
+}
+
+header.with-background .hero h1 {
+  font-size: 52px;
+  margin-top: 50px;
+}
+
+header.with-background .hero p {
+  margin: 40px 0 68px;
+}
+
+header.with-background .hero .button {
+  margin-right: 14px;
+}
+
+header {
+  background: #535353;
+}
+
+header .top-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 30px 0;
+}
+
 header .top-nav .logo {
   font-weight: bold;
   font-size: 28px;
+  color: #e9e9e9;
 }
 
 header .top-nav ul {
@@ -254,6 +329,8 @@ header .top-nav ul {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 40%;
+  padding-top: 8px;
+  font-weight: 400;
 }
 
 header .top-nav ul a {
@@ -264,29 +341,15 @@ header .top-nav ul a:hover {
   color: #d0cfcf;
 }
 
-header .hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
-  padding-top: 20px;
-  padding-bottom: 84px;
+.breadcrumbs {
+  background: #F5F5F5;
+  border-bottom: 1px solid #CDCDCD;
+  padding: 24px 0;
 }
 
-header .hero .hero-image {
-  padding-left: 60px;
-}
-
-header .hero h1 {
-  font-size: 52px;
-  margin-top: 50px;
-}
-
-header .hero p {
-  margin: 40px 0 68px;
-}
-
-header .hero .button {
-  margin-right: 14px;
+.breadcrumbs .breadcrumb-separator {
+  font-size: 14px;
+  color: #545454;
 }
 
 .featured-section {
@@ -296,7 +359,11 @@ header .hero .button {
 .featured-section .products {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 30px;
+  grid-gap: 60px 30px;
+}
+
+.featured-section .products .product-price {
+  color: #919191 !important;
 }
 
 .blog-section {

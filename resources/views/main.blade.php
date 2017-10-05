@@ -17,7 +17,7 @@
 
     </head>
     <body>
-        <header>
+        <header class="with-background">
             <div class="top-nav container">
                 <div class="logo">Laravel Ecommerce</div>
                 <ul>
@@ -46,7 +46,7 @@
         <div class="featured-section">
 
             <div class="container">
-                <h1 class="text-center">CSS Grid Example</h1>
+                <h1 class="text-center">Laravel Ecommerce</h1>
 
                 <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic.</p>
 
@@ -141,18 +141,7 @@
             </div> <!-- end container -->
         </div> <!-- end blog-section -->
 
-        <footer>
-            <div class="footer-content container">
-                <div class="made-with">Made with <i class="fa fa-heart heart"></i> by Andre Madarang</div>
-                <ul>
-                    <li>Follow Me: </li>
-                    <li><a href="https://andremadarang.com"><i class="fa fa-globe"></i></a></li>
-                    <li><a href="https://www.youtube.com/channel/UCtb40EQj2inp8zuaQlLx3iQ"><i class="fa fa-youtube"></i></a></li>
-                    <li><a href="https://github.com/drehimself"><i class="fa fa-github"></i></a></li>
-                    <li><a href="https://twitter.com/drehimself"><i class="fa fa-twitter"></i></a></li>
-                </ul>
-            </div> <!-- end footer-content -->
-        </footer>
+        @include('partials.footer')
 
 
     </body>
