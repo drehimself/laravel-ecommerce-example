@@ -3,8 +3,7 @@
 @section('title', 'Products')
 
 @section('extra-css')
-    <link rel="stylesheet" href="{{ asset('css/plugins/dataTables/jquery.dataTables.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/colorbox.css') }}">
+
 @endsection
 
 @section('content')
@@ -37,7 +36,7 @@
                 <li><a href="#">$2500+</a></li>
             </ul>
         </div> <!-- end sidebar -->
-        <div class="products">
+        <div class="products text-center">
             <div class="product">
                 <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
                 <a href="#"><div class="product-name">MacBook Pro</div></a>

@@ -1,0 +1,42 @@
+.featured-section {
+    padding: 50px 0;
+
+    .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 60px $gutter;
+
+        .product-price {
+            color: $text-color-light !important;
+        }
+    }
+}
+
+.blog-section {
+    background: $light-gray-background;
+    border-top: 1px solid $separator-color;
+    padding: 50px 0;
+    grid-area: blog-section;
+
+    .blog-posts {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: $gutter;
+        margin: 60px 0 60px;
+        grid-template-areas:
+        "blog1 blog2 blog3";
+
+        #blog1 {
+            grid-area: blog1;
+        }
+
+        #blog2 {
+            grid-area: blog2;
+        }
+
+        #blog3 {
+            grid-area: blog3;
+        }
+    }
+
+}

@@ -1,0 +1,24 @@
+footer {
+    background: $gray-background;
+    color: $white;
+    padding: 40px 0;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+
+    .heart {
+      color: $heart;
+    }
+
+    ul {
+      display: flex;
+      width: 30%;
+      justify-content: space-between;
+    }
+
+    a {
+      color: $white;
+    }
+  }

@@ -1,0 +1,23 @@
+.button {
+    border: 1px solid $text-color;
+    padding: 12px 40px;
+
+    &:hover {
+        color: $white;
+        background: $text-color;
+    }
+}
+
+.button-white {
+    border: 1px solid $white;
+    color: $white !important;
+
+    &:hover {
+        color: $text-color !important;
+        background: $white;
+    }
+}
+
+.button-container {
+    margin: 80px 0;
+}

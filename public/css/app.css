@@ -1,3 +1,47 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: #212121;
+}
+
+a:visited {
+  color: #212121;
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.container {
+  margin: auto;
+  max-width: 1200px;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -74,7 +118,6 @@ figcaption,
 footer,
 header,
 hgroup,
-main,
 menu,
 nav,
 output,
@@ -103,7 +146,6 @@ figure,
 footer,
 header,
 hgroup,
-main,
 menu,
 nav,
 section {
@@ -137,32 +179,11 @@ table {
   border-spacing: 0;
 }
 
-html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-}
-
 body {
   font-family: 'Roboto', Arial, sans-serif;
   font-size: 18px;
   font-weight: 300;
   line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: #212121;
-}
-
-a:visited {
-  color: #212121;
 }
 
 h1,
@@ -173,35 +194,26 @@ h2 {
 
 h1 {
   font-size: 38px;
-  margin-bottom: 40px;
   line-height: 1.2;
 }
 
 h2 {
   font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.container {
-  margin: auto;
-  max-width: 1200px;
-}
-
-img {
-  max-width: 100%;
 }
 
 .text-center {
   text-align: center;
 }
 
-.section-description {
-  width: 80%;
-  margin: auto;
+.breadcrumbs {
+  background: #F5F5F5;
+  border-bottom: 1px solid #CDCDCD;
+  padding: 24px 0;
 }
 
-.button-container {
-  margin: 80px 0;
+.breadcrumbs .breadcrumb-separator {
+  font-size: 14px;
+  color: #545454;
 }
 
 .button {
@@ -224,15 +236,13 @@ img {
   background: #e9e9e9;
 }
 
-.products-section {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+.button-container {
+  margin: 80px 0;
 }
 
-.products {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 60px 30px;
+.section-description {
+  width: 80%;
+  margin: auto;
 }
 
 header.with-background {
@@ -341,15 +351,37 @@ header .top-nav ul a:hover {
   color: #d0cfcf;
 }
 
-.breadcrumbs {
-  background: #F5F5F5;
-  border-bottom: 1px solid #CDCDCD;
-  padding: 24px 0;
+footer {
+  background: #535353;
+  color: #e9e9e9;
+  padding: 40px 0;
 }
 
-.breadcrumbs .breadcrumb-separator {
-  font-size: 14px;
-  color: #545454;
+.footer-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer-content .heart {
+  color: #FFBABA;
+}
+
+.footer-content ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 30%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.footer-content a {
+  color: #e9e9e9;
 }
 
 .featured-section {
@@ -393,36 +425,14 @@ header .top-nav ul a:hover {
   grid-area: blog3;
 }
 
-footer {
-  background: #535353;
-  color: #e9e9e9;
-  padding: 40px 0;
+.products-section {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
 }
 
-.footer-content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.footer-content .heart {
-  color: #FFBABA;
-}
-
-.footer-content ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 30%;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.footer-content a {
-  color: #e9e9e9;
+.products-section .products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 60px 30px;
 }
 
