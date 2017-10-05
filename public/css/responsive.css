@@ -9,28 +9,28 @@
 /* Medium Devices, Desktops */
 
 @media only screen and (max-width: 992px) {
-  header .top-nav {
+  header.with-background .top-nav {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
 
-  header .top-nav .logo {
+  header.with-background .top-nav .logo {
     margin: auto;
   }
 
-  header .top-nav ul {
+  header.with-background .top-nav ul {
     margin: 20px auto 0;
     width: 80%;
   }
 
-  header .hero {
+  header.with-background .hero {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
-  header .hero .hero-image {
+  header.with-background .hero .hero-image {
     padding-left: 0;
     margin-top: 40px;
   }
