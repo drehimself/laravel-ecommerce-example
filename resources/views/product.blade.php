@@ -31,36 +31,14 @@
             </p>
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magni accusantium, sapiente dicta iusto ut dignissimos atque placeat tempora iste.</p>
+
+            <p>&nbsp;</p>
+
+            <a href="#" class="button">Add to Cart</a>
         </div>
     </div> <!-- end product-section -->
 
-    <div class="might-like-section">
-        <div class="container">
-            <h2>You might also like...</h2>
-            <div class="might-like-grid">
-                <div class="might-like-product">
-                    <img src="{{ asset('img/macbook-pro.png') }}" alt="product">
-                    <div class="might-like-product-name">MacBook Pro</div>
-                    <div class="might-like-product-price">$2499.99</div>
-                </div>
-                <div class="might-like-product">
-                    <img src="{{ asset('img/macbook-pro.png') }}" alt="product">
-                    <div class="might-like-product-name">MacBook Pro</div>
-                    <div class="might-like-product-price">$2499.99</div>
-                </div>
-                <div class="might-like-product">
-                    <img src="{{ asset('img/macbook-pro.png') }}" alt="product">
-                    <div class="might-like-product-name">MacBook Pro</div>
-                    <div class="might-like-product-price">$2499.99</div>
-                </div>
-                <div class="might-like-product">
-                    <img src="{{ asset('img/macbook-pro.png') }}" alt="product">
-                    <div class="might-like-product-name">MacBook Pro</div>
-                    <div class="might-like-product-price">$2499.99</div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('partials.might-like')
 
 
 @endsection
