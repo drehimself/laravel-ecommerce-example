@@ -13,6 +13,11 @@ a {
     &:visited {
         color: $text-color;
     }
+
+    &:hover {
+        color: lighten($text-color, 40%);
+    }
+
 }
 
 .logo a {

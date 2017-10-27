@@ -6,6 +6,12 @@
     margin-bottom: 30px;
 }
 
+.sticky-footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .full-width {
   width: 100%;
 }

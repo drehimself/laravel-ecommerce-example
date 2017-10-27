@@ -36,68 +36,71 @@
                 <li><a href="#">$2500+</a></li>
             </ul>
         </div> <!-- end sidebar -->
-        <div class="products text-center">
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-            <div class="product">
-                <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
-                <a href="#"><div class="product-name">MacBook Pro</div></a>
-                <div class="product-price">$2499.99</div>
-            </div>
-        </div> <!-- end products -->
+        <div>
+            <h1 class="stylish-heading">Laptops</h1>
+            <div class="products text-center">
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+                <div class="product">
+                    <a href="#"><img src="/img/macbook-pro.png" alt="product"></a>
+                    <a href="#"><div class="product-name">MacBook Pro</div></a>
+                    <div class="product-price">$2499.99</div>
+                </div>
+            </div> <!-- end products -->
+        </div>
     </div>
 
 

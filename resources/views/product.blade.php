@@ -25,6 +25,7 @@
         <div class="product-section-information">
             <h1 class="product-section-title">MacBook Pro</h1>
             <div class="product-section-subtitle">15 inch, 1TB SSD, 32GB RAM</div>
+            <div class="product-section-price">$2499.99</div>
 
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facere facilis praesentium eaque et eum, illo repudiandae quia adipisci, soluta voluptatum. Reprehenderit inventore, sed a voluptatibus enim optio cum repellat?

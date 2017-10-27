@@ -10,7 +10,7 @@
 
     <div class="container">
 
-        <h1 class="checkout">Checkout</h1>
+        <h1 class="checkout-heading stylish-heading">Checkout</h1>
         <div class="checkout-section">
             <div>
                 <form action="#">
@@ -154,7 +154,7 @@
                     </div>
                 </div> <!-- end checkout-totals -->
 
-                <div class="have-code">Have a Code?</div>
+                <a href="#" class="have-code">Have a Code?</a>
 
                 <div class="have-code-container">
                     <form action="#">
