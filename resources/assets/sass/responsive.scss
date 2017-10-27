@@ -8,7 +8,7 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px) {
-    header.with-background {
+    header.with-background, header {
         .top-nav {
             flex-direction: column;
 
@@ -66,6 +66,79 @@
         ul {
             margin: 20px auto;
             width: 60%;
+        }
+    }
+
+    .breadcrumbs {
+        text-align: center;
+    }
+
+    .products-section {
+        grid-template-columns: 1fr;
+
+        .sidebar {
+            text-align: center;
+        }
+
+        .products {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .product-section {
+        grid-template-columns: 1fr;
+    }
+
+    .might-like-section .might-like-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-section {
+
+        grid-template-columns: 1fr;
+
+        .cart-buttons {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .cart-table-row {
+
+            .cart-table-row-left {
+                width: 30%;
+            }
+
+            .cart-table-row-right {
+                width: 55%;
+            }
+
+            img {
+                display: none;
+            }
+
+        }
+
+        .cart-totals {
+            flex-direction: column;
+
+            .cart-totals-left {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .cart-totals-right {
+                width: 100%;
+            }
+        }
+
+    }
+
+
+    .checkout-section {
+        grid-template-columns: 1fr;
+
+        .checkout-table-container {
+            margin-left: 10px;
         }
     }
 }
