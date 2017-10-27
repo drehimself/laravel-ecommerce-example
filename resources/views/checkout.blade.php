@@ -154,14 +154,6 @@
                     </div>
                 </div> <!-- end checkout-totals -->
 
-                <a href="#" class="have-code">Have a Code?</a>
-
-                <div class="have-code-container">
-                    <form action="#">
-                        <input type="text">
-                        <input type="submit" class="button" value="Apply">
-                    </form>
-                </div>
             </div>
 
         </div> <!-- end checkout-section -->
