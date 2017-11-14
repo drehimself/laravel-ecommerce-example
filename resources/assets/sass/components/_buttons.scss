@@ -28,6 +28,11 @@
     }
 }
 
+.button-plain {
+    border: 1px solid $text-color !important;
+    background: transparent;
+}
+
 .button-container {
     margin: 80px 0;
 }

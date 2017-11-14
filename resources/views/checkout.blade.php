@@ -77,7 +77,7 @@
 
                     <div class="spacer"></div>
 
-                    <input type="submit" class="button-primary full-width" value="Complete Order">
+                    <button type="submit" class="button-primary full-width">Complete Order</button>
 
 
                 </form>

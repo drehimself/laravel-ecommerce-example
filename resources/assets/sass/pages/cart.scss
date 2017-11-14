@@ -52,6 +52,18 @@
         .cart-table-description {
             color: $text-color-light;
         }
+
+        .cart-options {
+            color: $text-color;
+            background: transparent;
+            font-size: 14px;
+            font-weight: 300;
+            padding: 0;
+
+            &:hover {
+                color: lighten($text-color, 30%);
+            }
+        }
     }
 
     .have-code {

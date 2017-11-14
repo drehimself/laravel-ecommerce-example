@@ -86,6 +86,27 @@ header.with-background {
           }
         }
 
+        .cart-count {
+          display: inline-block;
+          // position: absolute;
+          // right: 0;
+          // top: -22px;
+          // right: -24px;
+          background: $cart-count;
+          color: $text-color;
+          line-height: 0;
+          border-radius: 50%;
+          font-size: 14px;
+
+          span {
+            display: inline-block;
+            padding-top: 50%;
+            padding-bottom: 50%;
+            margin-left:6px;
+            margin-right:6px;
+          }
+        }
+
       }
     }
   }
