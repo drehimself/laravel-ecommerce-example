@@ -64,6 +64,11 @@
                         <input type="text" class="form-control" id="address" name="address" value="">
                     </div>
 
+                    <div class="form-group">
+                        <label for="cc-number">Credit Card Number</label>
+                        <input type="text" class="form-control" id="cc-number" name="cc-number" value="">
+                    </div>
+
                     <div class="half-form">
                         <div class="form-group">
                             <label for="expiry">Expiry</label>
