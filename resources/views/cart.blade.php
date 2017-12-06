@@ -106,7 +106,7 @@
             <div class="have-code-container">
                 <form action="#">
                     <input type="text">
-                    <input type="submit" class="button" value="Apply">
+                    <button type="submit" class="button button-plain">Apply</button>
                 </form>
             </div> <!-- end have-code-container -->
 
