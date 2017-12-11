@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Product')
+@section('title', $product->name)
 
 @section('extra-css')
 
@@ -10,9 +10,9 @@
 
     <div class="breadcrumbs">
         <div class="container">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
             <i class="fa fa-chevron-right breadcrumb-separator"></i>
-            <span>Shop</span>
+            <a href="{{ route('shop.index') }}">Shop</a>
             <i class="fa fa-chevron-right breadcrumb-separator"></i>
             <span>Macbook Pro</span>
         </div>
@@ -20,18 +20,16 @@
 
     <div class="product-section container">
         <div class="product-section-image">
-            <img src="{{ asset('img/macbook-pro.png') }}" alt="product">
+            <img src="{{ asset('img/products/'.$product->slug.'.jpg') }}" alt="product">
         </div>
         <div class="product-section-information">
-            <h1 class="product-section-title">MacBook Pro</h1>
-            <div class="product-section-subtitle">15 inch, 1TB SSD, 32GB RAM</div>
-            <div class="product-section-price">$2499.99</div>
+            <h1 class="product-section-title">{{ $product->name }}</h1>
+            <div class="product-section-subtitle">{{ $product->details }}</div>
+            <div class="product-section-price">{{ $product->presentPrice() }}</div>
 
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae facere facilis praesentium eaque et eum, illo repudiandae quia adipisci, soluta voluptatum. Reprehenderit inventore, sed a voluptatibus enim optio cum repellat?
+                {{ $product->description }}
             </p>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas magni accusantium, sapiente dicta iusto ut dignissimos atque placeat tempora iste.</p>
 
             <p>&nbsp;</p>
 
