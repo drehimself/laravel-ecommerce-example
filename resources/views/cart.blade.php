@@ -82,15 +82,6 @@
 
             </div> <!-- end cart-table -->
 
-            <a href="#" class="have-code">Have a Code?</a>
-
-            <div class="have-code-container">
-                <form action="#">
-                    <input type="text">
-                    <button type="submit" class="button button-plain">Apply</button>
-                </form>
-            </div> <!-- end have-code-container -->
-
             <div class="cart-totals">
                 <div class="cart-totals-left">
                     Shipping is free because we’re awesome like that. Also because that’s additional stuff I don’t feel like figuring out :).

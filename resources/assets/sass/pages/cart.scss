@@ -66,39 +66,6 @@
         }
     }
 
-    .have-code {
-      display: block;
-      margin: 14px 0;
-    }
-
-    .have-code-container {
-      border: 1px solid $text-color-light;
-      padding: 16px;
-      width: 50%;
-
-      form {
-        display: flex;
-        justify-content: space-between;
-      }
-
-      input[type="text"] {
-        width: 70%;
-        padding: 10px;
-        font-size: 16px;
-      }
-
-      input[type="submit"] {
-        background: white;
-        border: 1px solid $text-color-light;
-        padding-top: 8px;
-        padding-bottom: 8px;
-
-        &:hover {
-          background: $text-color;
-        }
-      }
-    }
-
     .cart-totals {
         margin: 30px 0;
         padding: 20px;
