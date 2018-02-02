@@ -28,7 +28,7 @@
             <div class="product-section-price">{{ $product->presentPrice() }}</div>
 
             <p>
-                {{ $product->description }}
+                {!! $product->description !!}
             </p>
 
             <p>&nbsp;</p>
