@@ -17,6 +17,10 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+        if (Cart::instance('default')->count() == 0) {
+            return redirect()->route('shop.index');
+        }
+
         return view('checkout')->with([
             'discount' => $this->getNumbers()->get('discount'),
             'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
