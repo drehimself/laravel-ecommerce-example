@@ -19,8 +19,18 @@
     </div> <!-- end breadcrumbs -->
 
     <div class="product-section container">
-        <div class="product-section-image">
-            <img src="{{ asset('img/products/'.$product->slug.'.jpg') }}" alt="product">
+        <div>
+            <div class="product-section-image">
+                <img src="{{ productImage($product->image) }}" alt="product">
+                {{-- <img src="{{ asset('img/products/'.$product->slug.'.jpg') }}" alt="product"> --}}
+            </div>
+            <div>
+                @if ($product->images)
+                    @foreach (json_decode($product->images, true) as $image)
+                        <img src="{{ productImage($image) }}" alt="product">
+                    @endforeach
+                @endif
+            </div>
         </div>
         <div class="product-section-information">
             <h1 class="product-section-title">{{ $product->name }}</h1>
