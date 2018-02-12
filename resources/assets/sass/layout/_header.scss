@@ -15,10 +15,10 @@ header.with-background {
       }
 
       ul {
-        display: flex;
-        text-transform: uppercase;
-        justify-content: space-between;
-        width: 40%;
+        // display: flex;
+        // text-transform: uppercase;
+        // justify-content: space-between;
+        // width: 40%;
 
         a {
           color: $white;
@@ -69,15 +69,24 @@ header.with-background {
         font-weight: bold;
         font-size: 28px;
         color: $white;
+        margin-right: 58px;
       }
 
       ul {
         display: flex;
         text-transform: uppercase;
-        justify-content: space-between;
-        width: 40%;
+        // justify-content: space-between;
+        // width: 40%;
         padding-top: 8px;
         font-weight: 400;
+
+        li {
+          margin-right: 38px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
 
         a {
           color: $white;
@@ -108,5 +117,14 @@ header.with-background {
         }
 
       }
+    }
+
+    .top-nav-left {
+      display: flex;
+    }
+
+    .top-nav-right {
+      display: flex;
+      align-items: center;
     }
   }

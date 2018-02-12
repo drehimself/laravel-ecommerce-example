@@ -39,7 +39,8 @@
 
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
+                        {{-- <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required> --}}
+                        <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
                     </div>
                     <div class="form-group">
                         <label for="name">Name</label>
