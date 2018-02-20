@@ -49,12 +49,21 @@ class EcommerceInstall extends Command
 
     protected function proceed()
     {
-        File::deleteDirectory(public_path('storage/products/dummy'));
+        File::deleteDirectory(public_path('storage/products'));
+        File::deleteDirectory(public_path('storage/settings'));
+        File::deleteDirectory(public_path('storage/pages'));
+        File::deleteDirectory(public_path('storage/posts'));
+        File::deleteDirectory(public_path('storage/users'));
+
         $this->callSilent('storage:link');
         $copySuccess = File::copyDirectory(public_path('img/products'), public_path('storage/products/dummy'));
         if ($copySuccess) {
             $this->info('Images successfully copied to storage folder.');
         }
+
+        File::copyDirectory(public_path('img/pages'), public_path('storage/pages'));
+        File::copyDirectory(public_path('img/posts'), public_path('storage/posts'));
+        File::copyDirectory(public_path('img/users'), public_path('storage/users'));
 
         $this->call('migrate:fresh', [
             '--seed' => true,
