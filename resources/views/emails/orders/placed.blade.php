@@ -7,7 +7,7 @@ Thank you for your order.
 
 **Order Email:** {{ $order->billing_email }}
 
-**Order Email:** {{ $order->billing_name }}
+**Order Name:** {{ $order->billing_name }}
 
 **Order Total:** ${{ round($order->billing_total / 100, 2) }}
 
