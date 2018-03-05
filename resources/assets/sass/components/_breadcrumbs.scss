@@ -7,4 +7,10 @@
         font-size: 14px;
         color: lighten($text-color, 20%);
     }
+
+    .breadcrumbs-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }

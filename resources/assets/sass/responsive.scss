@@ -81,6 +81,15 @@
 
     .breadcrumbs {
         text-align: center;
+
+        .breadcrumbs-container {
+            flex-direction: column;
+        }
+    }
+
+    .search-form {
+        margin: 14px auto;
+        width: 80%;
     }
 
     .products-section {
