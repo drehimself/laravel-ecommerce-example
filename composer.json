@@ -14,6 +14,7 @@
         "gloudemans/shoppingcart": "^2.4",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
+        "nicolaslopezj/searchable": "^1.9",
         "tcg/voyager": "^1.0"
     },
     "require-dev": {
