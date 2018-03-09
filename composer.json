@@ -9,10 +9,12 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "algolia/algoliasearch-client-php": "^1.25",
         "cartalyst/stripe-laravel": "^7.0",
         "fideloper/proxy": "~3.3",
         "gloudemans/shoppingcart": "^2.4",
         "laravel/framework": "5.5.*",
+        "laravel/scout": "^4.0",
         "laravel/tinker": "~1.0",
         "nicolaslopezj/searchable": "^1.9",
         "tcg/voyager": "^1.0"
