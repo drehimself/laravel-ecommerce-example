@@ -14,7 +14,7 @@
                     const markup = `
                         <div class="algolia-result">
                             <span>
-                                <img src="${window.location.origin}/${suggestion.image}" alt="img" class="algolia-thumb">
+                                <img src="${window.location.origin}/storage/${suggestion.image}" alt="img" class="algolia-thumb">
                                 ${suggestion._highlightResult.name.value}
                             </span>
                             <span>$${(suggestion.price / 100).toFixed(2)}</span>
