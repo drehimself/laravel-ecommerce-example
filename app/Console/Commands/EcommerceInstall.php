@@ -125,6 +125,14 @@ class EcommerceInstall extends Command
             '--force' => true,
         ]);
 
+        $this->call('scout:clear', [
+            'model' => 'App\\Product',
+        ]);
+
+        $this->call('scout:import', [
+            'model' => 'App\\Product',
+        ]);
+
         $this->info('Dummy data installed');
     }
 }
