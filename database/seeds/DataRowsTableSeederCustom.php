@@ -94,7 +94,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => '{"validation":{"rule":"required|regex:/^\\d*(\\.\\d{1,2})?$/"}}',
+                'details'      => '{"validation":{"rule":"required|regex:/^\\\d*(\\\.\\\d{1,2})?$/"}}',
                 'order'        => 5,
             ])->save();
         }
