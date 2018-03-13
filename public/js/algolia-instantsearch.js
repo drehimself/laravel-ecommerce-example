@@ -16,7 +16,7 @@
                         <a href="${window.location.origin}/shop/${item.slug}">
                             <div class="instantsearch-result">
                                 <div>
-                                    <img src="${window.location.origin}/${item.image}" alt="img" class="algolia-thumb-result">
+                                    <img src="${window.location.origin}/storage/${item.image}" alt="img" class="algolia-thumb-result">
                                 </div>
                                 <div>
                                     <div class="result-title">
