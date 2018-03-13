@@ -164,6 +164,15 @@
             margin-left: 10px;
         }
     }
+
+    .search-results-container-algolia {
+        grid-template-columns: 1fr;
+    }
+
+    .ais-refinement-list--count {
+        margin-left: auto;
+        margin-right: 10px;
+    }
 }
 
 /* Small Devices, Tablets */

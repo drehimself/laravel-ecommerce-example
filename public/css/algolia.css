@@ -87,3 +87,7 @@
   .algolia-details {
       color: #919191;
   }
+
+  .ais-hits--item em {
+    background-color: rgba(58, 150, 207, 0.3);
+  }
