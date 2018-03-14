@@ -23,7 +23,7 @@ Website Demo: [https://laravelecommerceexample.ca](https://laravelecommerceexamp
 1. Visit `localhost:8000` in your browser
 1. Visit `/admin` if you want to access the Voyager admin backend. Admin User/Password: `admin@admin.com/password`. Admin Web User/Password: `adminweb@adminweb.com/password`
 
-## Windows Users
+## Windows Users - money_format() issue
 
 The `money_format` function does not work in Windows. Take a look at [this thread](https://stackoverflow.com/questions/6369887/alternative-to-money-format-function-in-php-on-windows-platform/18990145). As an alternative, just use the `number_format` function instead.
 
