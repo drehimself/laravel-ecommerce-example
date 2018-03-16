@@ -79,6 +79,7 @@
 @endsection
 
 @section('extra-js')
+    <script src="{{ asset('js/app.js') }}"></script>
     <script>
         (function(){
             const currentImage = document.querySelector('#currentImage');

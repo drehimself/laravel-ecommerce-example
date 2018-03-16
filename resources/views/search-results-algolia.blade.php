@@ -35,32 +35,51 @@
     </div>
 
     <div class="container">
+
+
+        <ais-index app-id="P53SZUIML8" api-key="19f54cccab5efbeb0d351b307326a864" index-name="products">
         <div class="search-results-container-algolia">
             <div>
                 <h2>Search</h2>
-                <div id="search-box">
-                    <!-- SearchBox widget will appear here -->
-                </div>
+                <ais-search-box></ais-search-box>
 
-                <div id="stats-container"></div>
+                <ais-stats></ais-stats>
 
                 <div class="spacer"></div>
                 <h2>Categories</h2>
-                <div id="refinement-list">
-                    <!-- RefinementList widget will appear here -->
-                </div>
+                <ais-refinement-list attribute-name="categories" :sort-by="['name:asc']"></ais-refinement-list>
             </div>
 
             <div>
-                <div id="hits">
-                    <!-- Hits widget will appear here -->
-                </div>
-
-                <div id="pagination">
-                    <!-- Pagination widget will appear here -->
-                </div>
+                <ais-results>
+                    <template slot-scope="{ result }">
+                        <div>
+                            <a :href="`/shop/${result.slug}`">
+                                <div class="instantsearch-result">
+                                    <div>
+                                        <img :src="`/storage/${result.image}`" alt="img" class="algolia-thumb-result">
+                                    </div>
+                                    <div>
+                                        <div class="result-title">
+                                            <ais-highlight :result="result" attribute-name="name"></ais-highlight>
+                                        </div>
+                                        <div class="result-details">
+                                            <ais-highlight :result="result" attribute-name="details"></ais-highlight>
+                                        </div>
+                                        <div class="result-price">
+                                            $@{{ (result.price / 100).toFixed(2) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr>
+                        </div>
+                    </template>
+                </ais-results>
+                <ais-pagination></ais-pagination>
             </div>
         </div> <!-- end search-results-container-algolia -->
+        </ais-index>
     </div> <!-- end container -->
 
 @endsection
@@ -69,7 +88,8 @@
     <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
     <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-    <script src="{{ asset('js/algolia.js') }}"></script>
+    {{--  <script src="{{ asset('js/algolia.js') }}"></script>  --}}
     <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0"></script>
-    <script src="{{ asset('js/algolia-instantsearch.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    {{--  <script src="{{ asset('js/algolia-instantsearch.js') }}"></script>  --}}
 @endsection
