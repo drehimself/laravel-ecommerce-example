@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -47,6 +48,23 @@ class LoginController extends Controller
         session()->put('previousUrl', url()->previous());
 
         return view('auth.login');
+    }
+
+    // override logout so cart contents remain:
+    // https://github.com/Crinsane/LaravelShoppingcart/issues/253
+    public function logout(Request $request)
+    {
+        $cart = collect(session()->get('cart'));
+
+        $destination = \Auth::logout();
+
+        if (!config('cart.destroy_on_logout')) {
+            $cart->each(function ($rows, $identifier) {
+                session()->put('cart.' . $identifier, $rows);
+            });
+        }
+
+        return redirect()->to($destination);
     }
 
     public function redirectTo()
