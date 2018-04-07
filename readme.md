@@ -17,7 +17,7 @@ Website Demo: [https://laravelecommerceexample.ca](https://laravelecommerceexamp
 1. Set your Algolia credentials in your `.env` file. Specifically `ALGOLIA_KEY` and `ALGOLIA_SECRET`. See [this episode](https://www.youtube.com/watch?v=Sa0R_2aHICw&index=22&list=PLEhEHUEU3x5oPTli631ZX9cxl6cU_sDaR).
 1. Set your `APP_URL` in your `.env` file. This is needed for Voyager to correctly resolve asset URLs.
 1. Set `ADMIN_PASSWORD` in your `.env` file if you want to specify an admin password. If not, the default password is 'password'
-1. `php artisan ecommerce:install`. This will migrate the database and run any seeders necessary
+1. `php artisan ecommerce:install`. This will migrate the database and run any seeders necessary. See [this episode](https://www.youtube.com/watch?v=L3EbWJmmyjo&index=18&list=PLEhEHUEU3x5oPTli631ZX9cxl6cU_sDaR).
 1. `npm install`
 1. `npm run dev`
 1. `php artisan serve` or use Laravel Valet or Laravel Homestead
