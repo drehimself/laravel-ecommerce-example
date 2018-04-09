@@ -30,6 +30,7 @@ The `money_format` function does not work in Windows. Take a look at [this threa
 
 1. In `app/helpers.php` replace `money_format` line with `return '$'.number_format($price / 100, 2);`
 1. In `app/Product.php` replace `money_format` line with `return '$'.number_format($this->price / 100, 2);`
+1. In `config/cart.php` set the `thousand_seperator` to an empty string or you might get a 'non well formed numeric value encountered' error. It conflicts with `number_format`.
 
 ## Starting from a particular point
 
