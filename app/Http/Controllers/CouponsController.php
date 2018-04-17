@@ -43,10 +43,6 @@ class CouponsController extends Controller
     {
         session()->forget('coupon');
 
-        if (auth()->user()) {
-            return redirect()->route('checkout.index')->with('success_message', 'Coupon has been removed.');
-        }
-
-        return redirect()->route('guestCheckout.index')->with('success_message', 'Coupon has been removed.');
+        return back()->with('success_message', 'Coupon has been removed.');
     }
 }
