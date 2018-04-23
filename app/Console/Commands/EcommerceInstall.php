@@ -69,6 +69,7 @@ class EcommerceInstall extends Command
             $this->call('migrate:fresh', [
                 '--seed' => true,
                 '--force' => true,
+                '--path' => 'database/migrations',
             ]);
         } catch (\Exception $e) {
             $this->error('Algolia credentials incorrect. Your products table is NOT seeded correctly. If you are not using Algolia, remove Searchable trait from App\Product');
