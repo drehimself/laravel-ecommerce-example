@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 use TCG\Voyager\Facades\Voyager;
 use Illuminate\Database\Eloquent\Model;
 use TCG\Voyager\Events\BreadDataUpdated;
-use TCG\Voyager\Http\Controllers\VoyagerBreadController;
+use TCG\Voyager\Http\Controllers\VoyagerBaseController;
 use TCG\Voyager\Http\Controllers\Traits\BreadRelationshipParser;
 
-class UsersController extends VoyagerBreadController
+class UsersController extends VoyagerBaseController
 {
     use BreadRelationshipParser;
 
