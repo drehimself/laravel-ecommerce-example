@@ -10,10 +10,10 @@
     "require": {
         "php": ">=7.0.0",
         "algolia/algoliasearch-client-php": "^1.25",
-        "cartalyst/stripe-laravel": "^7.0",
-        "fideloper/proxy": "~3.3",
-        "gloudemans/shoppingcart": "^2.4",
-        "laravel/framework": "5.5.*",
+        "cartalyst/stripe-laravel": "^8.0",
+        "fideloper/proxy": "~4.0",
+        "gloudemans/shoppingcart": "^2.5",
+        "laravel/framework": "5.6.*",
         "laravel/scout": "^4.0",
         "laravel/tinker": "~1.0",
         "nicolaslopezj/searchable": "^1.9",
@@ -23,7 +23,7 @@
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~7.0"
     },
     "autoload": {
         "files": [
