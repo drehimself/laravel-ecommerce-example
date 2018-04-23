@@ -44,7 +44,8 @@
   box-shadow: 4px 4px 0 rgba(241, 241, 241, 0.35);
   font-size: 12px;
   border-radius: 4px;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  word-wrap: break-word; }
 .aa-suggestion {
   padding: 12px;
   border-top: 1px solid rgba(228, 228, 228, 0.6);
