@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "browser-sync": "^2.23.6",
-        "browser-sync-webpack-plugin": "^1.2.0"
+        "browser-sync-webpack-plugin": "^1.2.0",
+        "sanitize-html": "^1.18.2"
     }
 }
