@@ -30,20 +30,20 @@ class CartController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Product $product)
     {
-        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-            return $cartItem->id === $request->id;
+        $duplicates = Cart::search(function ($cartItem, $rowId) use ($product) {
+            return $cartItem->id === $product->id;
         });
 
         if ($duplicates->isNotEmpty()) {
             return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
         }
 
-        Cart::add($request->id, $request->name, 1, $request->price)
+        Cart::add($product->id, $product->name, 1, $product->price)
             ->associate('App\Product');
 
         return redirect()->route('cart.index')->with('success_message', 'Item was added to your cart!');
