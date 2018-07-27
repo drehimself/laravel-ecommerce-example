@@ -13,10 +13,10 @@ class AddUserRoleRelationshipFix extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->unsignedInteger('role_id')->change();
-            $table->foreign('role_id')->references('id')->on('roles');
-        });
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->unsignedInteger('role_id')->change();
+        //     $table->foreign('role_id')->references('id')->on('roles');
+        // });
     }
     /**
      * Reverse the migrations.
@@ -25,9 +25,9 @@ class AddUserRoleRelationshipFix extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['role_id']);
-            $table->integer('role_id')->change();
-        });
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->dropForeign(['role_id']);
+        //     $table->integer('role_id')->change();
+        // });
     }
 }
