@@ -1,7 +1,10 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -10,7 +13,10 @@
         "fideloper/proxy": "^4.0",
         "gloudemans/shoppingcart": "^2.5",
         "laravel/framework": "5.6.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "laravel/nova": "*",
+        "drehimself/some-tool": "*",
+        "drehimself/stripe-inspector": "*"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -37,8 +43,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {
@@ -57,5 +62,21 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./nova"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/SomeTool"
+        },
+        {
+            "type": "path",
+            "url": "./nova-components/StripeInspector"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
