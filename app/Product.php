@@ -20,4 +20,9 @@ class Product extends Model
     {
         return $query->inRandomOrder()->take(4);
     }
+
+    public function orders()
+    {
+        return $this->belongsToMany('App\Order')->withPivot('quantity_item');
+    }
 }
