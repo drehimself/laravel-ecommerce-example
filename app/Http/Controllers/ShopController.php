@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Category;
 use Illuminate\Http\Request;
+use GrahamCampbell\Markdown\Facades\Markdown;
 
 class ShopController extends Controller
 {
@@ -52,10 +53,12 @@ class ShopController extends Controller
     public function show($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
+        $productDescription = $product->description;
         $mightAlsoLike = Product::where('slug', '!=', $slug)->mightAlsoLike()->get();
 
         return view('product')->with([
             'product' => $product,
+            'productDescription' => $productDescription,
             'mightAlsoLike' => $mightAlsoLike,
         ]);
     }

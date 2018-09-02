@@ -5,6 +5,7 @@ namespace App\Nova;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Place;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -69,6 +70,8 @@ class Order extends Resource
                 ->sortable()
                 ->rules('required'),
 
+            $this->addressFields(),
+
             // BelongsToMany::make('Products')
             BelongsToMany::make('Products')
                 ->fields(function () {
@@ -79,6 +82,24 @@ class Order extends Resource
 
             StripeInspector::make(),
         ];
+    }
+
+    /**
+     * Get the address fields for the resource.
+     *
+     * @return \Illuminate\Http\Resources\MergeValue
+     */
+    protected function addressFields()
+    {
+        return $this->merge([
+            Place::make('Address', 'Billing Address')
+                ->city('billing_city')
+                ->state('billing_province')
+                ->postalCode('billing_postalcode'),
+            Text::make('Billing City')->hideFromIndex(),
+            Text::make('Billing Province')->hideFromIndex(),
+            Text::make('Billing Postalcode')->hideFromIndex(),
+        ]);
     }
 
     /**

@@ -5,10 +5,15 @@ namespace App\Nova;
 use Laravel\Nova\Panel;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\File;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Image;
+use Laravel\Nova\Fields\Avatar;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Currency;
+use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\Textarea;
 use App\Nova\Filters\ProductFeatured;
 use App\Nova\Filters\ProductQuantity;
@@ -73,6 +78,8 @@ class Product extends Resource
                 ->sortable()
                 ->rules('required'),
 
+
+
             // Currency::make('price')
             //         ->sortable(),
 
@@ -90,11 +97,19 @@ class Product extends Resource
                 ->onlyOnForms()
                 ->rules('required'),
 
-            Textarea::make('description')
+            Trix::make('description')
                 ->hideFromIndex()
                 ->rules('required'),
 
             new Panel('Visibility', $this->visibilityFields()),
+
+            Avatar::make('Image')
+                ->disk('public')
+                ->path('products')
+                ->rules('max:5000'),
+                // ->storeAs(function (Request $request) {
+                //     return $request->image->getClientOriginalName();
+                // }),
 
             BelongsToMany::make('Orders')
                 ->fields(function () {
@@ -164,6 +179,8 @@ class Product extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new Actions\ProductFeatured,
+        ];
     }
 }

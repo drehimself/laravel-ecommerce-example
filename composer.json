@@ -9,14 +9,17 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "beyondcode/nova-tinker-tool": "^0.0.1",
         "cartalyst/stripe-laravel": "^8.0",
+        "drehimself/some-tool": "*",
+        "drehimself/stripe-inspector": "*",
         "fideloper/proxy": "^4.0",
         "gloudemans/shoppingcart": "^2.5",
+        "graham-campbell/markdown": "^10.1",
         "laravel/framework": "5.6.*",
-        "laravel/tinker": "~1.0",
         "laravel/nova": "*",
-        "drehimself/some-tool": "*",
-        "drehimself/stripe-inspector": "*"
+        "laravel/tinker": "~1.0",
+        "sbine/route-viewer": "^0.0.3"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

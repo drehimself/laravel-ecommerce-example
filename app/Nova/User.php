@@ -96,7 +96,9 @@ class User extends Resource
      */
     public function lenses(Request $request)
     {
-        return [];
+        return [
+            new Lenses\UsersMostRevenue,
+        ];
     }
 
     /**
@@ -107,6 +109,8 @@ class User extends Resource
      */
     public function actions(Request $request)
     {
-        return [];
+        return [
+            new Actions\EmailCoupon,
+        ];
     }
 }

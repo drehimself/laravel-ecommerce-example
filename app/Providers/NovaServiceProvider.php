@@ -78,6 +78,8 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         return [
             new SomeTool,
+            new \Beyondcode\TinkerTool\Tinker(),
+            new \Sbine\RouteViewer\RouteViewer,
         ];
     }
 

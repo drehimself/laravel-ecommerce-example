@@ -20,7 +20,7 @@
 
     <div class="product-section container">
         <div class="product-section-image">
-            <img src="{{ asset('img/products/'.$product->slug.'.jpg') }}" alt="product">
+            <img src="{{ asset($product->image) }}" alt="product">
         </div>
         <div class="product-section-information">
             <h1 class="product-section-title">{{ $product->name }}</h1>
@@ -28,7 +28,7 @@
             <div class="product-section-price">{{ $product->presentPrice() }}</div>
 
             <p>
-                {{ $product->description }}
+                {!! $productDescription !!}
             </p>
 
             <p>&nbsp;</p>
