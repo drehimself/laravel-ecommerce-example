@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2fc1e9d54627baba88eb95bbb5517f72",
+    "content-hash": "0026dafed802a3143c50a8636fb415e1",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -117,6 +117,53 @@
                 "widgets"
             ],
             "time": "2018-04-15T19:59:08+00:00"
+        },
+        {
+            "name": "braintree/braintree_php",
+            "version": "3.36.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/braintree/braintree_php.git",
+                "reference": "a864c9c4a3ed08f384e278f7e9723bd9c5d984d0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/a864c9c4a3ed08f384e278f7e9723bd9c5d984d0",
+                "reference": "a864c9c4a3ed08f384e278f7e9723bd9c5d984d0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-dom": "*",
+                "ext-hash": "*",
+                "ext-openssl": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Braintree": "lib/"
+                },
+                "psr-4": {
+                    "Braintree\\": "lib/Braintree"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Braintree",
+                    "homepage": "https://www.braintreepayments.com"
+                }
+            ],
+            "description": "Braintree PHP Client Library",
+            "time": "2018-10-10T20:59:28+00:00"
         },
         {
             "name": "cartalyst/collections",
