@@ -1,0 +1,26 @@
+.products-section {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin: 80px auto 80px;
+
+    .sidebar li.active {
+        font-weight: 500;
+    }
+
+    .products {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 60px $gutter;
+
+        .product-price {
+          color: $text-color-light;
+        }
+    }
+}
+
+.products-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+

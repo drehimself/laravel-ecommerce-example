@@ -1,0 +1,111 @@
+h1.checkout-heading {
+  margin-top: 40px;
+}
+
+.checkout-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  // grid-column-gap: 10px;
+  grid-gap: 30px;
+  margin: 40px auto 80px;
+
+  .checkout-table-container {
+    margin-left: 124px;
+  }
+
+  h2 {
+    margin-bottom: 28px;
+  }
+
+  .checkout-table-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid $text-color-light;
+    padding: 14px 0;
+
+    &:last-child {
+      border-bottom: 1px solid $text-color-light;
+    }
+
+    .checkout-table-row-left, .checkout-table-row-right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .checkout-table-row-left {
+      width: 75%;
+    }
+
+    .checkout-table-row-right {
+      // width: 24%;
+      // padding-top: 10px;
+    }
+
+    .checkout-table-img {
+      max-height: 60px;
+    }
+
+    .checkout-table-description {
+      color: $text-color-light;
+    }
+
+    .checkout-table-price {
+      padding-top: 6px;
+    }
+
+    .checkout-table-quantity {
+      border: 1px solid $text-color-light;
+      padding: 4px 12px;
+      margin-right: 5px;
+    }
+  }
+
+  .checkout-totals {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $text-color-light;
+    padding: 18px 0;
+    line-height: 2;
+
+    .checkout-totals-right {
+      text-align: right;
+    }
+
+    .checkout-totals-total {
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 2.2;
+    }
+  }
+}
+
+
+
+/**
+* The CSS shown here will not be introduced in the Quickstart guide, but shows
+* how you can use CSS to style your Element's container.
+*/
+.StripeElement {
+  background-color: white;
+  padding: 16px 16px;
+  border: 1px solid #ccc;
+
+}
+
+.StripeElement--focus {
+  // box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+#card-errors {
+  color: #fa755a;
+}
