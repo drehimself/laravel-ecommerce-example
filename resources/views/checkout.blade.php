@@ -108,22 +108,24 @@
 
                 </form>
 
-                <div class="mt-32">or</div>
-                <div class="mt-32">
-                    <h2>Pay with PayPal</h2>
+                @if ($paypalToken)
+                    <div class="mt-32">or</div>
+                    <div class="mt-32">
+                        <h2>Pay with PayPal</h2>
 
-                    <form method="post" id="paypal-payment-form" action="{{ route('checkout.paypal') }}">
-                        @csrf
-                        <section>
-                            <div class="bt-drop-in-wrapper">
-                                <div id="bt-dropin"></div>
-                            </div>
-                        </section>
+                        <form method="post" id="paypal-payment-form" action="{{ route('checkout.paypal') }}">
+                            @csrf
+                            <section>
+                                <div class="bt-drop-in-wrapper">
+                                    <div id="bt-dropin"></div>
+                                </div>
+                            </section>
 
-                        <input id="nonce" name="payment_method_nonce" type="hidden" />
-                        <button class="button-primary" type="submit"><span>Pay with PayPal</span></button>
-                    </form>
-                </div>
+                            <input id="nonce" name="payment_method_nonce" type="hidden" />
+                            <button class="button-primary" type="submit"><span>Pay with PayPal</span></button>
+                        </form>
+                    </div>
+                @endif
             </div>
 
 

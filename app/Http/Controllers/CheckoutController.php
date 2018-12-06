@@ -39,7 +39,7 @@ class CheckoutController extends Controller
 
         try {
             $paypalToken = $gateway->ClientToken()->generate();
-        } catch (\Braintree\Exception\Authorization $e) {
+        } catch (\Exception $e) {
             $paypalToken = null;
         }
 
