@@ -192,7 +192,7 @@
     <script>
         (function(){
             // Create a Stripe client
-            var stripe = Stripe('pk_test_JKVJPMynL8ckk7ivBxoroTlT');
+            var stripe = Stripe('{{ config('services.stripe.key') }}');
 
             // Create an instance of Elements
             var elements = stripe.elements();
