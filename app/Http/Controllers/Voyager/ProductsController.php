@@ -55,8 +55,6 @@ class ProductsController extends VoyagerBaseController
             $model = app($dataType->model_name);
             $query = $model::select('*');
 
-            $relationships = $this->getRelationships($dataType);
-
             // If a column has a relationship associated with it, we do not want to show that field
             $this->removeRelationshipField($dataType, 'browse');
 
@@ -69,13 +67,13 @@ class ProductsController extends VoyagerBaseController
             if ($orderBy && in_array($orderBy, $dataType->fields())) {
                 $querySortOrder = (!empty($sortOrder)) ? $sortOrder : 'DESC';
                 $dataTypeContent = call_user_func([
-                    $query->with($relationships)->orderBy($orderBy, $querySortOrder),
+                    $query->orderBy($orderBy, $querySortOrder),
                     $getter,
                 ]);
             } elseif ($model->timestamps) {
                 $dataTypeContent = call_user_func([$query->latest($model::CREATED_AT), $getter]);
             } else {
-                $dataTypeContent = call_user_func([$query->with($relationships)->orderBy($model->getKeyName(), 'DESC'), $getter]);
+                $dataTypeContent = call_user_func([$query->orderBy($model->getKeyName(), 'DESC'), $getter]);
             }
 
             // Replace relationships' keys for labels and create READ links if a slug is provided.
@@ -133,10 +131,8 @@ class ProductsController extends VoyagerBaseController
         // Compatibility with Model binding.
         $id = $id instanceof Model ? $id->{$id->getKeyName()} : $id;
 
-        $relationships = $this->getRelationships($dataType);
-
         $dataTypeContent = (strlen($dataType->model_name) != 0)
-            ? app($dataType->model_name)->with($relationships)->findOrFail($id)
+            ? app($dataType->model_name)->findOrFail($id)
             : DB::table($dataType->name)->where('id', $id)->first(); // If Model doest exist, get data from table name
 
         foreach ($dataType->editRows as $key => $row) {

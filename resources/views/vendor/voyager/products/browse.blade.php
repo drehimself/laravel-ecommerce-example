@@ -59,11 +59,11 @@
                                         @foreach($dataType->browseRows as $row)
                                         <th>
                                             @if ($isServerSide)
-                                                <a href="{{ $row->sortByUrl() }}">
+                                                <a href="{{ $row->sortByUrl($orderBy, $sortOrder) }}">
                                             @endif
                                             {{ $row->display_name }}
                                             @if ($isServerSide)
-                                                @if ($row->isCurrentSortField())
+                                                @if ($row->isCurrentSortField($orderBy))
                                                     @if (!isset($_GET['sort_order']) || $_GET['sort_order'] == 'asc')
                                                         <i class="voyager-angle-up pull-right"></i>
                                                     @else

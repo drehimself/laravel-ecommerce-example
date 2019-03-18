@@ -66,7 +66,7 @@ return [
     |
     */
 
-    'assets_path' => '/vendor/tcg/voyager/assets',
+    // 'assets_path' => '/vendor/tcg/voyager/assets',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     */
 
     'storage' => [
-        'disk' => 'public',
+        'disk' => env('FILESYSTEM_DRIVER', 'public'),
     ],
 
     /*
@@ -218,5 +218,9 @@ return [
          ],
          'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
      ],
+
+    'database' => [
+        'autoload_migrations' => true,
+    ]
 
 ];

@@ -539,7 +539,16 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'      => '{"model":"TCG\\\Voyager\\\Models\\\Role","table":"roles","type":"belongsTo","column":"role_id","key":"id","label":"name","pivot_table":"roles","pivot":"0"}',
+                'details'      => [
+                    'model'       => 'TCG\\Voyager\\Models\\Role',
+                    'table'       => 'roles',
+                    'type'        => 'belongsTo',
+                    'column'      => 'role_id',
+                    'key'         => 'id',
+                    'label'       => 'display_name',
+                    'pivot_table' => 'roles',
+                    'pivot'       => 0,
+                ],
                 'order'        => 10,
             ])->save();
         }
@@ -939,7 +948,17 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 0,
-                'details'      => '{"model":"TCG\\\Voyager\\\Models\\\Role","table":"roles","type":"belongsToMany","column":"id","key":"id","label":"display_name","pivot_table":"user_roles","pivot":"1","taggable":"0"}',
+                'details'      => [
+                    'model'       => 'TCG\\Voyager\\Models\\Role',
+                    'table'       => 'roles',
+                    'type'        => 'belongsToMany',
+                    'column'      => 'id',
+                    'key'         => 'id',
+                    'label'       => 'display_name',
+                    'pivot_table' => 'user_roles',
+                    'pivot'       => '1',
+                    'taggable'    => '0',
+                ],
                 'order'        => 11,
             ])->save();
         }

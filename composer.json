@@ -11,19 +11,19 @@
         "php": ">=7.0.0",
         "algolia/algoliasearch-client-php": "^1.25",
         "braintree/braintree_php": "^3.36",
-        "cartalyst/stripe-laravel": "^9.0",
+        "cartalyst/stripe-laravel": "^10.0",
         "fideloper/proxy": "~4.0",
-        "hardevine/shoppingcart": "^2.5.1",
-        "laravel/framework": "5.7.*",
+        "hardevine/shoppingcart": "^2.6.1",
+        "laravel/framework": "5.8.*",
         "laravel/scout": "^4.0",
         "laravel/tinker": "~1.0",
         "nicolaslopezj/searchable": "^1.9",
-        "tcg/voyager": "1.1.*"
+        "tcg/voyager": "1.2.*"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
-        "laravel/dusk": "^4.0",
+        "laravel/dusk": "^5.0",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~7.0"
     },
