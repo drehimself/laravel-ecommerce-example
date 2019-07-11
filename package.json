@@ -15,7 +15,7 @@
         "cross-env": "^5.1.3",
         "jquery": "^3.4.1",
         "laravel-mix": "^4.0.7",
-        "lodash": "^4.17.11",
+        "lodash": "^4.17.13",
         "reset-css": "^2.2.1",
         "resolve-url-loader": "2.3.1",
         "sass": "^1.21.0",
