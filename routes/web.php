@@ -26,6 +26,7 @@ Route::get('/guestCheckout', 'CheckoutController@index')->name('guestCheckout.in
 
 Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
 
+Route::view('/sample', 'sample');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
