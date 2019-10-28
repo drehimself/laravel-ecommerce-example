@@ -1,7 +1,6 @@
 <?php
 namespace App\Console\Commands;
 
-use AlgoliaSearch\Client;
 use Illuminate\Console\Command;
 
 class ClearIndex extends Command
@@ -27,10 +26,13 @@ class ClearIndex extends Command
     {
         $class = $this->argument('model');
         $model = new $class;
-        $algolia = new Client(config('scout.algolia.id'), config('scout.algolia.secret'));
+        $algolia = \Algolia\AlgoliaSearch\SearchClient::create(
+            config('scout.algolia.id'),
+            config('scout.algolia.secret')
+        );
         $index = $algolia->initIndex($model->searchableAs());
         // Remember this is an asynchronous operation in Algolia
-        $index->clearIndex();
+        $index->delete();
         $this->info('Index ' . $model->searchableAs() . ' cleared');
     }
 }
