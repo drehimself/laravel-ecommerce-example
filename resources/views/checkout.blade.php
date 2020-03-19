@@ -9,7 +9,7 @@
         }
     </style>
 
-    <script src="https://js.stripe.com/v3/"></script>
+    <!-- <script src="https://js.stripe.com/v3/"></script> -->
 
 @endsection
 
@@ -187,15 +187,15 @@
 @endsection
 
 @section('extra-js')
-    <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
+    <!-- <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script> -->
 
     <script>
         (function(){
             // Create a Stripe client
-            var stripe = Stripe('{{ config('services.stripe.key') }}');
+            // var stripe = Stripe('{{ config('services.stripe.key') }}');
 
             // Create an instance of Elements
-            var elements = stripe.elements();
+            // var elements = stripe.elements();
 
             // Custom styling can be passed to options when creating an Element.
             // (Note that this demo uses a wider set of styles than the guide below.)
@@ -217,23 +217,23 @@
             };
 
             // Create an instance of the card Element
-            var card = elements.create('card', {
-                style: style,
-                hidePostalCode: true
-            });
+            // var card = elements.create('card', {
+            //     style: style,
+            //     hidePostalCode: true
+            // });
 
             // Add an instance of the card Element into the `card-element` <div>
-            card.mount('#card-element');
+            // card.mount('#card-element');
 
             // Handle real-time validation errors from the card Element.
-            card.addEventListener('change', function(event) {
-              var displayError = document.getElementById('card-errors');
-              if (event.error) {
-                displayError.textContent = event.error.message;
-              } else {
-                displayError.textContent = '';
-              }
-            });
+            // card.addEventListener('change', function(event) {
+            //   var displayError = document.getElementById('card-errors');
+            //   if (event.error) {
+            //     displayError.textContent = event.error.message;
+            //   } else {
+            //     displayError.textContent = '';
+            //   }
+            // });
 
             // Handle form submission
             var form = document.getElementById('payment-form');
@@ -251,69 +251,73 @@
                 address_zip: document.getElementById('postalcode').value
               }
 
-              stripe.createToken(card, options).then(function(result) {
-                if (result.error) {
-                  // Inform the user if there was an error
-                  var errorElement = document.getElementById('card-errors');
-                  errorElement.textContent = result.error.message;
+            //   stripe.createToken(card, options).then(function(result) {
+            //     if (result.error) {
+            //       // Inform the user if there was an error
+            //       var errorElement = document.getElementById('card-errors');
+            //       errorElement.textContent = result.error.message;
 
-                  // Enable the submit button
-                  document.getElementById('complete-order').disabled = false;
-                } else {
-                  // Send the token to your server
-                  stripeTokenHandler(result.token);
-                }
-              });
+            //       // Enable the submit button
+            //       document.getElementById('complete-order').disabled = false;
+            //     } else {
+            //       // Send the token to your server
+            //       stripeTokenHandler(result.token);
+            //     }
+            //   });
+            var form = document.getElementById('payment-form');
+
+            form.submit();
+
             });
 
-            function stripeTokenHandler(token) {
-              // Insert the token ID into the form so it gets submitted to the server
-              var form = document.getElementById('payment-form');
-              var hiddenInput = document.createElement('input');
-              hiddenInput.setAttribute('type', 'hidden');
-              hiddenInput.setAttribute('name', 'stripeToken');
-              hiddenInput.setAttribute('value', token.id);
-              form.appendChild(hiddenInput);
+            // function stripeTokenHandler(token) {
+            //   // Insert the token ID into the form so it gets submitted to the server
+            //   var form = document.getElementById('payment-form');
+            //   var hiddenInput = document.createElement('input');
+            //   hiddenInput.setAttribute('type', 'hidden');
+            //   hiddenInput.setAttribute('name', 'stripeToken');
+            //   hiddenInput.setAttribute('value', token.id);
+            //   form.appendChild(hiddenInput);
 
-              // Submit the form
-              form.submit();
-            }
+            //   // Submit the form
+            //    form.submit();
+            // }
 
             // PayPal Stuff
             var form = document.querySelector('#paypal-payment-form');
             var client_token = "{{ $paypalToken }}";
 
-            braintree.dropin.create({
-              authorization: client_token,
-              selector: '#bt-dropin',
-              paypal: {
-                flow: 'vault'
-              }
-            }, function (createErr, instance) {
-              if (createErr) {
-                console.log('Create Error', createErr);
-                return;
-              }
+            // braintree.dropin.create({
+            //   authorization: client_token,
+            //   selector: '#bt-dropin',
+            //   paypal: {
+            //     flow: 'vault'
+            //   }
+            // }, function (createErr, instance) {
+            //   if (createErr) {
+            //     console.log('Create Error', createErr);
+            //     return;
+            //   }
 
-              // remove credit card option
-              var elem = document.querySelector('.braintree-option__card');
-              elem.parentNode.removeChild(elem);
+            //   // remove credit card option
+            //   var elem = document.querySelector('.braintree-option__card');
+            //   elem.parentNode.removeChild(elem);
 
-              form.addEventListener('submit', function (event) {
-                event.preventDefault();
+            //   form.addEventListener('submit', function (event) {
+            //     event.preventDefault();
 
-                instance.requestPaymentMethod(function (err, payload) {
-                  if (err) {
-                    console.log('Request Payment Method Error', err);
-                    return;
-                  }
+            //     instance.requestPaymentMethod(function (err, payload) {
+            //       if (err) {
+            //         console.log('Request Payment Method Error', err);
+            //         return;
+            //       }
 
-                  // Add the nonce to the form and submit
-                  document.querySelector('#nonce').value = payload.nonce;
-                  form.submit();
-                });
-              });
-            });
+            //       // Add the nonce to the form and submit
+            //       document.querySelector('#nonce').value = payload.nonce;
+            //       form.submit();
+            //     });
+            //   });
+            // });
 
         })();
     </script>

@@ -13,8 +13,8 @@
         <link href="/img/favicon.ico" rel="SHORTCUT ICON" />
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat%7CRoboto:300,400,700" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat%7CRoboto:300,400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">

@@ -12,6 +12,7 @@
         "algolia/algoliasearch-client-php": "^2.2",
         "braintree/braintree_php": "^3.36",
         "cartalyst/stripe-laravel": "^11.0",
+        "encore/laravel-admin": "^1.7",
         "facade/ignition": "^1.11",
         "fideloper/proxy": "~4.0",
         "hardevine/shoppingcart": "^2.7",

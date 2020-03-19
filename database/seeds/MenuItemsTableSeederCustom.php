@@ -42,7 +42,7 @@ class MenuItemsTableSeederCustom extends Seeder
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
                 'title' => 'Orders',
-                'url' => '/admin/orders',
+                'url' => '/admin2/orders',
                 'route' => null,
             ]);
             if (!$menuItem->exists) {
@@ -58,7 +58,7 @@ class MenuItemsTableSeederCustom extends Seeder
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
                 'title'   => 'Products',
-                'url'     => '/admin/products',
+                'url'     => '/admin2/products',
                 'route'   => null,
             ]);
             if (!$menuItem->exists) {
@@ -74,7 +74,7 @@ class MenuItemsTableSeederCustom extends Seeder
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
                 'title'   => 'Categories',
-                'url'     => '/admin/category',
+                'url'     => '/admin2/category',
                 'route'   => null,
             ]);
             if (!$menuItem->exists) {
@@ -90,7 +90,7 @@ class MenuItemsTableSeederCustom extends Seeder
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
                 'title'   => 'Coupons',
-                'url'     => '/admin/coupons',
+                'url'     => '/admin2/coupons',
                 'route'   => null,
             ]);
             if (!$menuItem->exists) {
@@ -106,7 +106,7 @@ class MenuItemsTableSeederCustom extends Seeder
             $menuItem = MenuItem::firstOrNew([
                 'menu_id' => $menu->id,
                 'title'   => 'Category Products',
-                'url'     => '/admin/category-product',
+                'url'     => '/admin2/category-product',
                 'route'   => null,
             ]);
             if (!$menuItem->exists) {
