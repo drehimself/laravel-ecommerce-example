@@ -3,15 +3,13 @@
     <div class="container">
       <h1 class="text-center">{{ __('blog.title') }}</h1>
 
-      <p
-        class="section-description"
-      >{{ __('blog.description') }}</p>
+      <p class="section-description">{{ __('blog.description') }}</p>
 
       <div class="blog-posts">
         <div v-for="post in posts" :key="post.id" class="blog-post">
           <a :href="post.slug">
             <!-- <blog-image :url="post._links['wp:featuredmedia'][0].href"></blog-image> -->
-            <img :src="post.image" alt="Blog Image">
+            <img :src="post.image" alt="Blog Image" />
           </a>
           <a :href="post.slug">
             <h2 class="blog-title">{{ post.title }}</h2>
@@ -34,15 +32,14 @@ export default {
     BlogImage
   },
   created() {
-      console.log("blogtitle");
+    console.log("blogtitle");
     this.blogTitle = "";
-    axios
-      .get(
-        "/api/posts"
-      )
-      .then(response => {
-        this.posts = response.data;
+    axios.get("/api/posts").then(response => {
+      this.posts = response.data;
+      this.posts.forEach(p => {
+        p.image = `/img/${p.image}`;
       });
+    });
   },
   data() {
     return {

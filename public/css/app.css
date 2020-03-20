@@ -186,7 +186,7 @@ img {
 }
 
 body {
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: "IRANSans", "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 300;
   line-height: 1.6;
@@ -196,7 +196,7 @@ h1,
 h2,
 .product-section-subtitle,
 .product-section-price {
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: "IRANSans", "Montserrat", Arial, sans-serif;
   font-weight: bold;
 }
 
@@ -262,8 +262,8 @@ strong {
 }
 
 .breadcrumbs {
-  background: #F5F5F5;
-  border-bottom: 1px solid #CDCDCD;
+  background: #f5f5f5;
+  border-bottom: 1px solid #cdcdcd;
   padding: 24px 0;
 }
 
@@ -299,7 +299,7 @@ strong {
 }
 
 .button-primary {
-  background: #3EBFA4;
+  background: #3ebfa4;
   color: white !important;
   padding: 12px 40px;
 }
@@ -339,7 +339,7 @@ strong {
 
 .might-like-section {
   padding: 40px 0 70px;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
 .might-like-section h2 {
@@ -373,7 +373,7 @@ form .half-form {
   grid-gap: 30px;
 }
 
-form button[type=submit] {
+form button[type="submit"] {
   border-style: none;
   cursor: pointer;
   font-size: 18px;
@@ -431,7 +431,7 @@ form button[type=submit] {
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
   background-color: #f4f4f4;
-  border-color: #DDDDDD;
+  border-color: #dddddd;
   color: inherit;
   cursor: default;
   z-index: 2;
@@ -446,8 +446,8 @@ form button[type=submit] {
 
 .pagination > li > a,
 .pagination > li > span {
-  background-color: #FFFFFF;
-  border: 1px solid #DDDDDD;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
   color: inherit;
   float: left;
   line-height: 1.42857;
@@ -923,7 +923,7 @@ header .top-nav ul a:hover {
 
 header .top-nav ul .cart-count {
   display: inline-block;
-  background: #FFD94D;
+  background: #ffd94d;
   color: #212121;
   line-height: 0;
   border-radius: 50%;
@@ -959,7 +959,7 @@ footer {
 }
 
 .footer-content .heart {
-  color: #FFBABA;
+  color: #ffbaba;
 }
 
 .footer-content ul {
@@ -987,8 +987,8 @@ footer {
 }
 
 .blog-section {
-  background: #F5F5F5;
-  border-top: 1px solid #CDCDCD;
+  background: #f5f5f5;
+  border-top: 1px solid #cdcdcd;
   padding: 50px 0;
   grid-area: blog-section;
 }
@@ -1179,7 +1179,7 @@ footer {
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  background: #F5F5F5;
+  background: #f5f5f5;
 }
 
 .cart-section .cart-totals .cart-totals-left {
@@ -1223,20 +1223,20 @@ footer {
   justify-content: space-between;
 }
 
-.cart-section .have-code-container input[type=text] {
+.cart-section .have-code-container input[type="text"] {
   width: 70%;
   padding: 10px;
   font-size: 16px;
 }
 
-.cart-section .have-code-container input[type=submit] {
+.cart-section .have-code-container input[type="submit"] {
   background: white;
   border: 1px solid #919191;
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
-.cart-section .have-code-container input[type=submit]:hover {
+.cart-section .have-code-container input[type="submit"]:hover {
   background: #212121;
 }
 
@@ -1402,7 +1402,7 @@ h1.checkout-heading {
 }
 
 .ais-hits--item hr {
-  border: 0.5px solid #CDCDCD;
+  border: 0.5px solid #cdcdcd;
 }
 
 .ais-refinement-list--label {
@@ -1440,7 +1440,7 @@ h1.checkout-heading {
   margin-bottom: 30px;
 }
 
-.auth-pages input[type=checkbox] {
+.auth-pages input[type="checkbox"] {
   width: auto;
 }
 
@@ -1475,7 +1475,7 @@ h1.checkout-heading {
 }
 
 .auth-pages .auth-right {
-  border-left: 1px solid #CDCDCD;
+  border-left: 1px solid #cdcdcd;
   padding-left: 100px;
 }
 
@@ -1515,8 +1515,8 @@ h1.checkout-heading {
 }
 
 .my-orders .order-header {
-  background: #F6F6F6;
-  border: 1px solid #DDDDDD;
+  background: #f6f6f6;
+  border: 1px solid #dddddd;
   padding: 14px;
   display: flex;
   align-items: center;
@@ -1525,7 +1525,7 @@ h1.checkout-heading {
 
 .my-orders .order-products {
   background: white;
-  border: 1px solid #DDDDDD;
+  border: 1px solid #dddddd;
   border-top: none;
   padding: 14px;
 }
@@ -1548,3 +1548,15 @@ h1.checkout-heading {
   margin-right: 24px;
 }
 
+@font-face {
+  font-family: "IRANSans";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/IRANSansWeb.eot");
+  src: url("../fonts/IRANSansWeb.eot?#iefix") format("embedded-opentype"),
+    /* IE6-8 */ url("../fonts/IRANSansWeb.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("../fonts/IRANSansWeb.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url("../fonts/IRANSansWeb.ttf")
+      format("truetype");
+}
