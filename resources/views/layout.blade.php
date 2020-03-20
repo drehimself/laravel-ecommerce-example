@@ -24,7 +24,7 @@
     </head>
 
 
-<body class="@yield('body-class', '')">
+<body dir="rtl" class="@yield('body-class', '')">
     @include('partials.nav')
 
     @yield('content')

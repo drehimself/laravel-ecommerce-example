@@ -16,12 +16,12 @@
         <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
     </head>
-    <body>
+    <body dir="rtl">
         <div id="app">
             <header class="with-background">
                 <div class="top-nav container">
                     <div class="top-nav-left">
-                        <div class="logo">Ecommerce</div>
+                        <div class="logo">{{ __('site.title') }}</div>
                         {{ menu('main', 'partials.menus.main') }}
                     </div>
                     <div class="top-nav-right">
@@ -30,11 +30,11 @@
                 </div> <!-- end top-nav -->
                 <div class="hero container">
                     <div class="hero-copy">
-                        <h1>Laravel Ecommerce Demo</h1>
-                        <p>Includes multiple products, categories, a shopping cart and a checkout system with Stripe integration.</p>
+                        <h1>{{ __('site.mainpage.header.title') }}</h1>
+                        <p>{{ __('site.mainpage.header.description') }}</p>
                         <div class="hero-buttons">
-                            <a href="https://www.youtube.com/playlist?list=PLEhEHUEU3x5oPTli631ZX9cxl6cU_sDaR" class="button button-white">Screencasts</a>
-                            <a href="https://github.com/drehimself/laravel-ecommerce-example" class="button button-white">GitHub</a>
+                            <a href="#" class="button button-white">{{ __('site.mainpage.header.button1') }}</a>
+                            <a href="#" class="button button-white">{{ __('site.mainpage.header.button2') }}</a>
                         </div>
                     </div> <!-- end hero-copy -->
 
@@ -47,13 +47,13 @@
             <div class="featured-section">
 
                 <div class="container">
-                    <h1 class="text-center">Laravel Ecommerce</h1>
+                    <h1 class="text-center">{{ __('site.mainpage.body.title') }}</h1>
 
-                    <p class="section-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore vitae nisi, consequuntur illum dolores cumque pariatur quis provident deleniti nesciunt officia est reprehenderit sunt aliquid possimus temporibus enim eum hic lorem.</p>
+                    <p class="section-description">{{ __('site.mainpage.body.description') }}</p>
 
                     <div class="text-center button-container">
-                        <a href="#" class="button">Featured</a>
-                        <a href="#" class="button">On Sale</a>
+                        <a href="#" class="button">{{ __('site.mainpage.body.button1') }}</a>
+                        <a href="#" class="button">{{ __('site.mainpage.body.button2') }}</a>
                     </div>
 
                     {{-- <div class="tabs">
@@ -77,7 +77,7 @@
                     </div> <!-- end products -->
 
                     <div class="text-center button-container">
-                        <a href="{{ route('shop.index') }}" class="button">View more products</a>
+                        <a href="{{ route('shop.index') }}" class="button">{{ __('site.mainpage.body.loadmore') }}</a>
                     </div>
 
                 </div> <!-- end container -->
@@ -90,5 +90,8 @@
 
         </div> <!-- end #app -->
         <script src="js/app.js"></script>
+        <script src="/lang-{{ app()->getLocale() }}.js"></script>
+
+
     </body>
 </html>

@@ -1,16 +1,16 @@
 <ul>
     @guest
-    <li><a href="{{ route('register') }}">Sign Up</a></li>
-    <li><a href="{{ route('login') }}">Login</a></li>
+    <li><a href="{{ route('register') }}">{{ __('site.menu_titles.signup') }}</a></li>
+    <li><a href="{{ route('login') }}">{{ __('site.menu_titles.login') }}</a></li>
     @else
     <li>
-        <a href="{{ route('users.edit') }}">My Account</a>
+        <a href="{{ route('users.edit') }}">{{ __('site.menu_titles.myaccount') }}</a>
     </li>
     <li>
         <a href="{{ route('logout') }}"
             onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
-            Logout
+            {{ __('site.menu_titles.logout') }}
         </a>
     </li>
 
@@ -18,7 +18,7 @@
         {{ csrf_field() }}
     </form>
     @endguest
-    <li><a href="{{ route('cart.index') }}">Cart
+    <li><a href="{{ route('cart.index') }}">{{ __('site.menu_titles.cart') }}
     @if (Cart::instance('default')->count() > 0)
     <span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>
     @endif

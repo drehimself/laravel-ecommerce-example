@@ -1,5 +1,7 @@
 <?php
 
+
+
 Route::get('/', 'LandingPageController@index')->name('landing-page');
 
 Route::get('/shop', 'ShopController@index')->name('shop.index');
@@ -26,11 +28,6 @@ Route::get('/guestCheckout', 'CheckoutController@index')->name('guestCheckout.in
 
 Route::get('/thankyou', 'ConfirmationController@index')->name('confirmation.index');
 
-
-Route::group(['prefix' => 'admin2'], function () {
-    Voyager::routes();
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -38,6 +35,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/search', 'ShopController@search')->name('search');
 
 Route::get('/search-algolia', 'ShopController@searchAlgolia')->name('search-algolia');
+
+Route::get('/lang-{lang}.js', 'LanguageController@show');
+
+
+Route::group(['prefix' => 'admin2'], function () {
+    Voyager::routes();
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/my-profile', 'UsersController@edit')->name('users.edit');

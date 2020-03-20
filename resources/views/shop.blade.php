@@ -9,9 +9,10 @@
 @section('content')
 
     @component('components.breadcrumbs')
-        <a href="/">Home</a>
+        <a href="/">{{ __('site.menu_titles.home') }}</a> 
+        >>
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span>Shop</span>
+        <span>{{ __('site.menu_titles.shop') }}</span>
     @endcomponent
 
     <div class="container">
@@ -34,7 +35,7 @@
 
     <div class="products-section container">
         <div class="sidebar">
-            <h3>By Category</h3>
+            <h3>{{ __('site.menu_titles.bycategory') }}</h3>
             <ul>
                 @foreach ($categories as $category)
                     <li class="{{ setActiveCategory($category->slug) }}"><a href="{{ route('shop.index', ['category' => $category->slug]) }}">{{ $category->name }}</a></li>
@@ -43,11 +44,11 @@
         </div> <!-- end sidebar -->
         <div>
             <div class="products-header">
-                <h1 class="stylish-heading">{{ $categoryName }}</h1>
+                <h1 class="stylish-heading">{{ $categoryName=="Featured"?"اخیر":"" }}</h1>
                 <div>
-                    <strong>Price: </strong>
-                    <a href="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'low_high']) }}">Low to High</a> |
-                    <a href="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'high_low']) }}">High to Low</a>
+                    <strong>{{ __('site.menu_titles.price') }}: </strong>
+                    <a href="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'low_high']) }}">{{ __('site.menu_titles.lowtohigh') }}</a> |
+                    <a href="{{ route('shop.index', ['category'=> request()->category, 'sort' => 'high_low']) }}">{{ __('site.menu_titles.hightolow') }}</a>
 
                 </div>
             </div>
@@ -60,7 +61,7 @@
                         <div class="product-price">{{ $product->presentPrice() }}</div>
                     </div>
                 @empty
-                    <div style="text-align: left">No items found</div>
+                    <div style="text-align: left">{{ __('site.menu_titles.noitem') }}</div>
                 @endforelse
             </div> <!-- end products -->
 

@@ -16,13 +16,13 @@ class CategoryTableSeeder extends Seeder
         $now = Carbon::now()->toDateTimeString();
 
         Category::insert([
-            ['name' => 'Laptops', 'slug' => 'laptops', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Desktops', 'slug' => 'desktops', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Mobile Phones', 'slug' => 'mobile-phones', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Tablets', 'slug' => 'tablets', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'TVs', 'slug' => 'tvs', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Digital Cameras', 'slug' => 'digital-cameras', 'created_at' => $now, 'updated_at' => $now],
-            ['name' => 'Appliances', 'slug' => 'appliances', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'دسته یک', 'slug' => 'cat1', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'دسته دوم', 'slug' => 'cat2', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'دسته سوم', 'slug' => 'cat3', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'دسته چهارم', 'slug' => 'cat4', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'دسته پنجم', 'slug' => 'cat5', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'دسته ششم', 'slug' => 'cat6', 'created_at' => $now, 'updated_at' => $now],
+            ['name' => 'دسته هفتم', 'slug' => 'cat7', 'created_at' => $now, 'updated_at' => $now],
         ]);
     }
 }
