@@ -19,26 +19,26 @@
                 </ul>
             </div>
             @endif
-            <h2>Create Account</h2>
+            <h2>{{ __('site.CreateAccount') }}</h2>
             <div class="spacer"></div>
 
             <form method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
 
-                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Name" required autofocus>
+                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="{{ __('site.name') }}" required autofocus>
 
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required>
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="{{ __('site.email') }}" required>
 
-                <input id="password" type="password" class="form-control" name="password" placeholder="Password" placeholder="Password" required>
+                <input id="password" type="password" class="form-control" name="password" placeholder="{{ __('site.password') }}" required>
 
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password"
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="{{ __('site.confirmpassword') }}"
                     required>
 
                 <div class="login-container">
-                    <button type="submit" class="auth-button">Create Account</button>
+                    <button type="submit" class="auth-button">{{ __('site.CreateAccount') }}</button>
                     <div class="already-have-container">
-                        <p><strong>Already have an account?</strong></p>
-                        <a href="{{ route('login') }}">Login</a>
+                        <p><strong>{{ __('site.Alreadyhaveanaccount') }}</strong></p>
+                        <a href="{{ route('login') }}">{{ __('site.login') }}</a>
                     </div>
                 </div>
 
@@ -46,15 +46,15 @@
         </div>
 
         <div class="auth-right">
-            <h2>New Customer</h2>
+            <h2>{{ __('site.NewCustomer') }}</h2>
             <div class="spacer"></div>
-            <p><strong>Save time now.</strong></p>
-            <p>Creating an account will allow you to checkout faster in the future, have easy access to order history and customize your experience to suit your preferences.</p>
+            <p><strong>{{ __('site.Savetimenow') }}.</strong></p>
+            <p>{{ __('site.Creatinganaccountwillallowyoutocheckoutfaster') }}</p>
 
             &nbsp;
             <div class="spacer"></div>
-            <p><strong>Loyalty Program</strong></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt debitis, amet magnam accusamus nisi distinctio eveniet ullam. Facere, cumque architecto.</p>
+            <p><strong>{{ __('site.Savetimenow') }}.</strong></p>
+            <p>{{ __('site.Creatinganaccountwillallowyoutocheckoutfaster') }}</p>
         </div>
     </div> <!-- end auth-pages -->
 </div>

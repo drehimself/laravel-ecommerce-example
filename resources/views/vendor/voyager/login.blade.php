@@ -30,7 +30,7 @@
         }
     </style>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"> -->
 </head>
 <body class="login">
 <div class="container-fluid">

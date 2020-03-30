@@ -9,9 +9,9 @@
 @section('content')
 
     @component('components.breadcrumbs')
-        <a href="/">Home</a>
+        <a href="/">{{ __('site.home') }}</a>>>
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span><a href="{{ route('shop.index') }}">Shop</a></span>
+        <span><a href="{{ route('shop.index') }}">{{ __('site.shop') }}</a></span>>>
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
         <span>{{ $product->name }}</span>
     @endcomponent
@@ -68,7 +68,7 @@
             @if ($product->quantity > 0)
                 <form action="{{ route('cart.store', $product) }}" method="POST">
                     {{ csrf_field() }}
-                    <button type="submit" class="button button-plain">Add to Cart</button>
+                    <button type="submit" class="button button-plain">{{ __('site.addToCart') }}</button>
                 </form>
             @endif
         </div>
@@ -102,8 +102,8 @@
     </script>
 
     <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-    <script src="{{ asset('js/algolia.js') }}"></script>
+    <script src="{{ asset('js/algolia.js') }}"></script> -->
 
 @endsection

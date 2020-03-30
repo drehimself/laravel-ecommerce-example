@@ -9,9 +9,9 @@
 @section('content')
 
     @component('components.breadcrumbs')
-        <a href="#">Home</a>
-        <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span>Shopping Cart</span>
+        <a href="#">{{ __('site.home') }}</a>
+        <i class="fa fa-chevron-right breadcrumb-separator"></i>>>
+        <span>{{ __('site.shoppingCart') }}</span>
     @endcomponent
 
     <div class="cart-section container">
@@ -34,7 +34,7 @@
 
             @if (Cart::count() > 0)
 
-            <h2>{{ Cart::count() }} item(s) in Shopping Cart</h2>
+            <h2>{{ Cart::count() }} {{ __('site.itemsInShoppingCart') }}</h2>
 
             <div class="cart-table">
                 @foreach (Cart::content() as $item)
@@ -52,13 +52,13 @@
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
-                                <button type="submit" class="cart-options">Remove</button>
+                                <button type="submit" class="cart-options">{{ __('site.remove') }}</button>
                             </form>
 
                             <form action="{{ route('cart.switchToSaveForLater', $item->rowId) }}" method="POST">
                                 {{ csrf_field() }}
 
-                                <button type="submit" class="cart-options">Save for Later</button>
+                                <button type="submit" class="cart-options">{{ __('site.saveForLater') }}</button>
                             </form>
                         </div>
                         <div>
@@ -77,37 +77,37 @@
 
             @if (! session()->has('coupon'))
 
-                <a href="#" class="have-code">Have a Code?</a>
+                <a href="#" class="have-code">{{ __('site.haveCode') }}</a>
 
                 <div class="have-code-container">
                     <form action="{{ route('coupon.store') }}" method="POST">
                         {{ csrf_field() }}
                         <input type="text" name="coupon_code" id="coupon_code">
-                        <button type="submit" class="button button-plain">Apply</button>
+                        <button type="submit" class="button button-plain">{{ __('site.apply') }}</button>
                     </form>
                 </div> <!-- end have-code-container -->
             @endif
 
             <div class="cart-totals">
                 <div class="cart-totals-left">
-                    Shipping is free because we’re awesome like that. Also because that’s additional stuff I don’t feel like figuring out :).
+                {{ __('site.shippingIsFreeBecauseWereAwesomeLikeThatAlsoBecauseThatsAdditionalStuffIDontFeelLikeFiguringOut') }} :).
                 </div>
 
                 <div class="cart-totals-right">
                     <div>
-                        Subtotal <br>
+                    {{ __('site.subTotal') }} <br>
                         @if (session()->has('coupon'))
                             Code ({{ session()->get('coupon')['name'] }})
                             <form action="{{ route('coupon.destroy') }}" method="POST" style="display:block">
                                 {{ csrf_field() }}
                                 {{ method_field('delete') }}
-                                <button type="submit" style="font-size:14px;">Remove</button>
+                                <button type="submit" style="font-size:14px;">{{ __('site.remove') }}</button>
                             </form>
                             <hr>
-                            New Subtotal <br>
+                            {{ __('site.newSubtotal') }} <br>
                         @endif
-                        Tax ({{config('cart.tax')}}%)<br>
-                        <span class="cart-totals-total">Total</span>
+                        {{ __('site.tax') }} ({{config('cart.tax')}}%)<br>
+                        <span class="cart-totals-total">{{ __('site.total') }}</span>
                     </div>
                     <div class="cart-totals-subtotal">
                         {{ presentPrice(Cart::subtotal()) }} <br>
@@ -123,22 +123,22 @@
             </div> <!-- end cart-totals -->
 
             <div class="cart-buttons">
-                <a href="{{ route('shop.index') }}" class="button">Continue Shopping</a>
-                <a href="{{ route('checkout.index') }}" class="button-primary">Proceed to Checkout</a>
+                <a href="{{ route('shop.index') }}" class="button">{{ __('site.continueShopping') }}</a>
+                <a href="{{ route('checkout.index') }}" class="button-primary">{{ __('site.proceedToCheckout') }}</a>
             </div>
 
             @else
 
-                <h3>No items in Cart!</h3>
+                <h3>{{ __('site.noItemsInCart') }}!</h3>
                 <div class="spacer"></div>
-                <a href="{{ route('shop.index') }}" class="button">Continue Shopping</a>
+                <a href="{{ route('shop.index') }}" class="button">{{ __('site.continueShopping') }}</a>
                 <div class="spacer"></div>
 
             @endif
 
             @if (Cart::instance('saveForLater')->count() > 0)
 
-            <h2>{{ Cart::instance('saveForLater')->count() }} item(s) Saved For Later</h2>
+            <h2>{{ Cart::instance('saveForLater')->count() }} {{ __('site.itemsSavedForLater') }}</h2>
 
             <div class="saved-for-later cart-table">
                 @foreach (Cart::instance('saveForLater')->content() as $item)
@@ -156,13 +156,13 @@
                                 {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
 
-                                <button type="submit" class="cart-options">Remove</button>
+                                <button type="submit" class="cart-options">{{ __('site.remove') }}</button>
                             </form>
 
                             <form action="{{ route('saveForLater.switchToCart', $item->rowId) }}" method="POST">
                                 {{ csrf_field() }}
 
-                                <button type="submit" class="cart-options">Move to Cart</button>
+                                <button type="submit" class="cart-options">{{ __('site.movetoCart') }}</button>
                             </form>
                         </div>
 
@@ -175,7 +175,7 @@
 
             @else
 
-            <h3>You have no items Saved for Later.</h3>
+            <h3>{{ __('site.youHaveNoItemsSavedForLater') }}.</h3>
 
             @endif
 
@@ -217,7 +217,7 @@
     </script>
 
     <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-    <script src="{{ asset('js/algolia.js') }}"></script>
+    <script src="{{ asset('js/algolia.js') }}"></script> -->
 @endsection

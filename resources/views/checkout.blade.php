@@ -35,15 +35,15 @@
             </div>
         @endif
 
-        <h1 class="checkout-heading stylish-heading">Checkout</h1>
+        <h1 class="checkout-heading stylish-heading">{{ __('site.checkout') }}</h1>
         <div class="checkout-section">
             <div>
                 <form action="{{ route('checkout.store') }}" method="POST" id="payment-form">
                     {{ csrf_field() }}
-                    <h2>Billing Details</h2>
+                    <h2>{{ __('site.billingDetails') }}</h2>
 
                     <div class="form-group">
-                        <label for="email">Email Address</label>
+                        <label for="email">{{ __('site.emailAddress') }}</label>
                         @if (auth()->user())
                             <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
                         @else
@@ -51,48 +51,48 @@
                         @endif
                     </div>
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">{{ __('site.name') }}</label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="address">Address</label>
+                        <label for="address">{{ __('site.address') }}</label>
                         <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}" required>
                     </div>
 
                     <div class="half-form">
                         <div class="form-group">
-                            <label for="city">City</label>
+                            <label for="city">{{ __('site.city') }}</label>
                             <input type="text" class="form-control" id="city" name="city" value="{{ old('city') }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="province">Province</label>
+                            <label for="province">{{ __('site.province') }}</label>
                             <input type="text" class="form-control" id="province" name="province" value="{{ old('province') }}" required>
                         </div>
                     </div> <!-- end half-form -->
 
                     <div class="half-form">
                         <div class="form-group">
-                            <label for="postalcode">Postal Code</label>
+                            <label for="postalcode">{{ __('site.postalCode') }}</label>
                             <input type="text" class="form-control" id="postalcode" name="postalcode" value="{{ old('postalcode') }}" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone</label>
+                            <label for="phone">{{ __('site.phone') }}</label>
                             <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}" required>
                         </div>
                     </div> <!-- end half-form -->
 
                     <div class="spacer"></div>
 
-                    <h2>Payment Details</h2>
+                    <h2>{{ __('site.paymentDetails') }}</h2>
 
                     <div class="form-group">
-                        <label for="name_on_card">Name on Card</label>
+                        <label for="name_on_card">{{ __('site.nameOnCard') }}</label>
                         <input type="text" class="form-control" id="name_on_card" name="name_on_card" value="">
                     </div>
 
                     <div class="form-group">
                         <label for="card-element">
-                          Credit or debit card
+                        {{ __('site.creditOrDebit') }}
                         </label>
                         <div id="card-element">
                           <!-- a Stripe Element will be inserted here. -->
@@ -103,15 +103,15 @@
                     </div>
                     <div class="spacer"></div>
 
-                    <button type="submit" id="complete-order" class="button-primary full-width">Complete Order</button>
+                    <button type="submit" id="complete-order" class="button-primary full-width">{{ __('site.completeOrder') }}</button>
 
 
                 </form>
 
                 @if ($paypalToken)
-                    <div class="mt-32">or</div>
+                    <div class="mt-32">{{ __('site.or') }}</div>
                     <div class="mt-32">
-                        <h2>Pay with PayPal</h2>
+                        <h2>{{ __('site.payWithPayPal') }}</h2>
 
                         <form method="post" id="paypal-payment-form" action="{{ route('checkout.paypal') }}">
                             @csrf
@@ -122,7 +122,7 @@
                             </section>
 
                             <input id="nonce" name="payment_method_nonce" type="hidden" />
-                            <button class="button-primary" type="submit"><span>Pay with PayPal</span></button>
+                            <button class="button-primary" type="submit"><span>{{ __('site.payWithPayPal') }}</span></button>
                         </form>
                     </div>
                 @endif
@@ -131,7 +131,7 @@
 
 
             <div class="checkout-table-container">
-                <h2>Your Order</h2>
+                <h2>{{ __('site.yourOrder') }}</h2>
 
                 <div class="checkout-table">
                     @foreach (Cart::content() as $item)
@@ -155,15 +155,15 @@
 
                 <div class="checkout-totals">
                     <div class="checkout-totals-left">
-                        Subtotal <br>
+                    {{ __('site.subTotal') }} <br>
                         @if (session()->has('coupon'))
-                            Discount ({{ session()->get('coupon')['name'] }}) :
+                        {{ __('site.discount') }} ({{ session()->get('coupon')['name'] }}) :
                             <br>
                             <hr>
-                            New Subtotal <br>
+                            {{ __('site.newSubTotal') }} <br>
                         @endif
-                        Tax ({{config('cart.tax')}}%)<br>
-                        <span class="checkout-totals-total">Total</span>
+                        {{ __('site.tax') }} ({{config('cart.tax')}}%)<br>
+                        <span class="checkout-totals-total">{{ __('site.total') }}</span>
 
                     </div>
 

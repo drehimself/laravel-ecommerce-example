@@ -17,7 +17,7 @@ class SaveForLaterController extends Controller
     {
         Cart::instance('saveForLater')->remove($id);
 
-        return back()->with('success_message', 'Item has been removed!');
+        return back()->with('success_message', trans('site.itemHasBeenRemoved') . '!');
     }
 
     /**

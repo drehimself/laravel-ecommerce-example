@@ -50,20 +50,20 @@
                     <div class="order-header">
                         <div class="order-header-items">
                             <div>
-                                <div class="uppercase font-bold">Order Placed</div>
+                                <div class="uppercase font-bold">{{ __('site.orderPlaced') }}</div>
                                 <div>{{ presentDate($order->created_at) }}</div>
                             </div>
                             <div>
-                                <div class="uppercase font-bold">Order ID</div>
+                                <div class="uppercase font-bold">{{ __('site.orderID') }}</div>
                                 <div>{{ $order->id }}</div>
                             </div><div>
-                                <div class="uppercase font-bold">Total</div>
+                                <div class="uppercase font-bold">{{ __('site.total') }}</div>
                                 <div>{{ presentPrice($order->billing_total) }}</div>
                             </div>
                         </div>
                         <div>
                             <div class="order-header-items">
-                                <div><a href="#">Invoice</a></div>
+                                <div><a href="#">{{ __('site.invoice') }}</a></div>
                             </div>
                         </div>
                     </div>
@@ -71,27 +71,27 @@
                         <table class="table" style="width:50%">
                             <tbody>
                                 <tr>
-                                    <td>Name</td>
+                                    <td>{{ __('site.name') }}</td>
                                     <td>{{ $order->user->name }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Address</td>
+                                    <td>{{ __('site.address') }}</td>
                                     <td>{{ $order->billing_address }}</td>
                                 </tr>
                                 <tr>
-                                    <td>City</td>
+                                    <td>{{ __('site.city') }}</td>
                                     <td>{{ $order->billing_city }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Subtotal</td>
+                                    <td>{{ __('site.subTotal') }}</td>
                                     <td>{{ presentPrice($order->billing_subtotal) }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Tax</td>
+                                    <td>{{ __('site.tax') }}</td>
                                     <td>{{ presentPrice($order->billing_tax) }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Total</td>
+                                    <td>{{ __('site.total') }}</td>
                                     <td>{{ presentPrice($order->billing_total) }}</td>
                                 </tr>
                             </tbody>
@@ -135,7 +135,7 @@
 
 @section('extra-js')
     <!-- Include AlgoliaSearch JS Client and autocomplete.js library -->
-    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
     <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-    <script src="{{ asset('js/algolia.js') }}"></script>
+    <script src="{{ asset('js/algolia.js') }}"></script> -->
 @endsection
