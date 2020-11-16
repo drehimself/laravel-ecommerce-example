@@ -29,7 +29,7 @@
 
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required>
 
-                <input id="password" type="password" class="form-control" name="password" placeholder="Password" placeholder="Password" required>
+                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
 
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password"
                     required>
