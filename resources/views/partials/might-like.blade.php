@@ -6,7 +6,7 @@
                 <a href="{{ route('shop.show', $product->slug) }}" class="might-like-product">
                     <img src="{{ asset('img/products/'.$product->slug.'.jpg') }}" alt="product">
                     <div class="might-like-product-name">{{ $product->name }}</div>
-                    <div class="might-like-product-price">{{ $product->presentPrice() }}</div>
+                    <div class="might-like-product-price">{{ $product->presentPrice() }} تومان</div>
                 </a>
             @endforeach
 

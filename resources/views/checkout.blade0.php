@@ -3,8 +3,13 @@
 @section('title', 'Checkout')
 
 @section('extra-css')
+    <style>
+        .mt-32 {
+            margin-top: 32px;
+        }
+    </style>
 
-<script src="https://js.stripe.com/v3/"></script>
+    <script src="https://js.stripe.com/v3/"></script>
 
 @endsection
 
@@ -24,7 +29,7 @@
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li>{!! $error !!}</li>
                     @endforeach
                 </ul>
             </div>
@@ -39,7 +44,11 @@
 
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
+                        @if (auth()->user())
+                            <input type="email" class="form-control" id="email" name="email" value="{{ auth()->user()->email }}" readonly>
+                        @else
+                            <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -94,8 +103,29 @@
                     </div>
                     <div class="spacer"></div>
 
-                    <button type="submit" id="complete-order" class="button-primary full-width">{{ __('site.completeOrder') }}</button>
+                    <button type="submit" id="complete-order" class="button-primary full-width">Complete Order</button>
+
+
                 </form>
+
+                @if ($paypalToken)
+                    <div class="mt-32">or</div>
+                    <div class="mt-32">
+                        <h2>Pay with PayPal</h2>
+
+                        <form method="post" id="paypal-payment-form" action="{{ route('checkout.paypal') }}">
+                            @csrf
+                            <section>
+                                <div class="bt-drop-in-wrapper">
+                                    <div id="bt-dropin"></div>
+                                </div>
+                            </section>
+
+                            <input id="nonce" name="payment_method_nonce" type="hidden" />
+                            <button class="button-primary" type="submit"><span>Pay with PayPal</span></button>
+                        </form>
+                    </div>
+                @endif
             </div>
 
 
@@ -107,11 +137,11 @@
                     @foreach (Cart::content() as $item)
                     <div class="checkout-table-row">
                         <div class="checkout-table-row-left">
-                            <img src="{{ asset('img/products/'.$item->model->slug.'.jpg') }}" alt="item" class="checkout-table-img">
+                            <img src="{{ productImage($item->model->image) }}" alt="item" class="checkout-table-img">
                             <div class="checkout-item-details">
                                 <div class="checkout-table-item">{{ $item->model->name }}</div>
                                 <div class="checkout-table-description">{{ $item->model->details }}</div>
-                                <div class="checkout-table-price">{{ $item->model->presentPrice() }} تومان</div>
+                                <div class="checkout-table-price">{{ $item->model->presentPrice() }} تومان </div>
                             </div>
                         </div> <!-- end checkout-table -->
 
@@ -128,16 +158,11 @@
                         Subtotal <br>
                         @if (session()->has('coupon'))
                             Discount ({{ session()->get('coupon')['name'] }}) :
-                            <form action="{{ route('coupon.destroy') }}" method="POST" style="display:inline">
-                                {{ csrf_field() }}
-                                {{ method_field('delete') }}
-                                <button type="submit" style="font-size:14px">Remove</button>
-                            </form>
                             <br>
                             <hr>
                             New Subtotal <br>
                         @endif
-                        Tax (13%)<br>
+                        {{ __('site.tax') }} ({{config('cart.tax')}}%)<br>
                         <span class="checkout-totals-total">Total</span>
 
                     </div>
@@ -154,20 +179,6 @@
 
                     </div>
                 </div> <!-- end checkout-totals -->
-
-                @if (! session()->has('coupon'))
-
-                <a href="#" class="have-code">Have a Code?</a>
-
-                <div class="have-code-container">
-                    <form action="{{ route('coupon.store') }}" method="POST">
-                        {{ csrf_field() }}
-                        <input type="text" name="coupon_code" id="coupon_code">
-                        <button type="submit" class="button button-plain">Apply</button>
-                    </form>
-                </div> <!-- end have-code-container -->
-                @endif
-
             </div>
 
         </div> <!-- end checkout-section -->
@@ -176,10 +187,12 @@
 @endsection
 
 @section('extra-js')
+    <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
+
     <script>
         (function(){
             // Create a Stripe client
-            var stripe = Stripe('pk_test_JKVJPMynL8ckk7ivBxoroTlT');
+            var stripe = Stripe('{{ config('services.stripe.key') }}');
 
             // Create an instance of Elements
             var elements = stripe.elements();
@@ -265,6 +278,43 @@
               // Submit the form
               form.submit();
             }
+
+            // PayPal Stuff
+            var form = document.querySelector('#paypal-payment-form');
+            var client_token = "{{ $paypalToken }}";
+
+            braintree.dropin.create({
+              authorization: client_token,
+              selector: '#bt-dropin',
+              paypal: {
+                flow: 'vault'
+              }
+            }, function (createErr, instance) {
+              if (createErr) {
+                console.log('Create Error', createErr);
+                return;
+              }
+
+              // remove credit card option
+              var elem = document.querySelector('.braintree-option__card');
+              elem.parentNode.removeChild(elem);
+
+              form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                instance.requestPaymentMethod(function (err, payload) {
+                  if (err) {
+                    console.log('Request Payment Method Error', err);
+                    return;
+                  }
+
+                  // Add the nonce to the form and submit
+                  document.querySelector('#nonce').value = payload.nonce;
+                  form.submit();
+                });
+              });
+            });
+
         })();
     </script>
 @endsection

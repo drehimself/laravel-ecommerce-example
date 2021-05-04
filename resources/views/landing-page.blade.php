@@ -61,25 +61,23 @@
                     <a href="#" class="button">On Sale</a>
                 </div>
 
-                {{-- <div class="tabs">
-                    <div class="tab">
-                        Featured
-                    </div>
-                    <div class="tab">
-                        On Sale
-                    </div>
-                </div> --}}
-
-                <div class="products text-center">
-                    @foreach ($products as $product)
-                        <div class="product">
-                            <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ asset('img/products/'.$product->slug.'.jpg') }}" alt="product"></a>
-                            <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
-                            <div class="product-price">{{ $product->presentPrice() }}</div>
+                    <div class="tabs">
+                        <div class="tab">
+                            پیشنهاد شده
                         </div>
-                    @endforeach
+                        <div class="tab">
+                            موجود
+                        </div>
+                    </div>
 
-                </div> <!-- end products -->
+                    <div class="products text-center">
+                        @foreach ($products as $product)
+                            <div class="product">
+                                <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ productImage($product->image) }}" alt="product"></a>
+                                <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
+                                <div class="product-price">{{ $product->presentPrice() }} تومان</div>
+                            </div>
+                        @endforeach
 
                 <div class="text-center button-container">
                     <a href="{{ route('shop.index') }}" class="button">View more products</a>
