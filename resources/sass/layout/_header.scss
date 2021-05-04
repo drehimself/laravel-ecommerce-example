@@ -1,0 +1,130 @@
+header.with-background {
+    background: url('/img/triangles.svg');
+    background-size: cover;
+    color: $white;
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 40px 0;
+      letter-spacing: 1.5px;
+
+      .logo {
+        font-weight: bold;
+        font-size: 28px;
+      }
+
+      ul {
+        // display: flex;
+        // text-transform: uppercase;
+        // justify-content: space-between;
+        // width: 40%;
+
+        a {
+          color: $white;
+          &:hover {
+            color: darken($white, 10%);
+          }
+        }
+
+      }
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr; //repeat(2, 1fr)
+      grid-gap: $gutter;
+      padding-top: 20px;
+      padding-bottom: 84px;
+
+      .hero-image {
+        padding-left: 60px;
+      }
+
+      h1 {
+        font-size: 52px;
+        margin-top: 50px;
+      }
+
+      p {
+        margin: 40px 0 68px;
+      }
+
+      .button {
+        margin-right: 14px;
+      }
+    }
+  }
+
+  header {
+    background: $gray-background;
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 0;
+      letter-spacing: 1.5px;
+
+      .logo {
+        font-weight: bold;
+        font-size: 28px;
+        color: $white;
+        margin-right: 58px;
+      }
+
+      ul {
+        display: flex;
+        text-transform: uppercase;
+        // justify-content: space-between;
+        // width: 40%;
+        padding-top: 8px;
+        font-weight: 400;
+
+        li {
+          margin-right: 38px;
+
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+
+        a {
+          color: $white;
+          &:hover {
+            color: darken($white, 10%);
+          }
+        }
+
+        .cart-count {
+          display: inline-block;
+          // position: absolute;
+          // right: 0;
+          // top: -22px;
+          // right: -24px;
+          background: $cart-count;
+          color: $text-color;
+          line-height: 0;
+          border-radius: 50%;
+          font-size: 14px;
+
+          span {
+            display: inline-block;
+            padding-top: 50%;
+            padding-bottom: 50%;
+            margin-left:6px;
+            margin-right:6px;
+          }
+        }
+
+      }
+    }
+
+    .top-nav-left {
+      display: flex;
+    }
+
+    .top-nav-right {
+      display: flex;
+      align-items: center;
+    }
+  }

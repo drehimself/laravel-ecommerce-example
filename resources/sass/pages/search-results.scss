@@ -1,0 +1,16 @@
+.search-results-container {
+    min-height: 500px;
+    margin: 20px auto;
+
+    a {
+        color: darkblue;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.search-results-count {
+    margin-bottom: 20px;
+}

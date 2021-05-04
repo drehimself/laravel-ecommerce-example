@@ -1,22 +1,33 @@
 {
     "name": "laravel/laravel",
     "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "cartalyst/stripe-laravel": "^7.0",
-        "fideloper/proxy": "~3.3",
-        "gloudemans/shoppingcart": "^2.4",
-        "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "algolia/algoliasearch-client-php": "^2.2",
+        "braintree/braintree_php": "^3.36",
+        "cartalyst/stripe-laravel": "^11.0",
+        "encore/laravel-admin": "^1.7",
+        "facade/ignition": "^1.11",
+        "fideloper/proxy": "~4.0",
+        "hardevine/shoppingcart": "^2.7",
+        "laravel/framework": "^6.0",
+        "laravel/helpers": "^1.1",
+        "laravel/scout": "^7.2",
+        "laravel/tinker": "~1.0",
+        "nicolaslopezj/searchable": "^1.12",
+        "tcg/voyager": "1.3.*"
     },
     "require-dev": {
-        "filp/whoops": "~2.0",
         "fzaninotto/faker": "~1.4",
+        "laravel/dusk": "^5.0",
         "mockery/mockery": "0.9.*",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~7.0"
     },
     "autoload": {
         "files": [
@@ -37,8 +48,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": ["laravel/dusk"]
         }
     },
     "scripts": {
@@ -57,5 +67,11 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
+    },
+    "repositories": {
+        "hooks": {
+            "type": "composer",
+            "url": "https://larapack.io"
+        }
     }
 }

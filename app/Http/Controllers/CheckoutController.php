@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
+use App\Product;
+use App\OrderProduct;
+use App\Mail\OrderPlaced;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Requests\CheckoutRequest;
 use Gloudemans\Shoppingcart\Facades\Cart;
 // use Cartalyst\Stripe\Laravel\Facades\Stripe;
@@ -17,11 +22,33 @@ class CheckoutController extends Controller
      */
     public function index()
     {
+        if (Cart::instance('default')->count() == 0) {
+            return redirect()->route('shop.index');
+        }
+
+        if (auth()->user() && request()->is('guestCheckout')) {
+            return redirect()->route('checkout.index');
+        }
+
+        $gateway = new \Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+
+        try {
+            $paypalToken = $gateway->ClientToken()->generate();
+        } catch (\Exception $e) {
+            $paypalToken = null;
+        }
+
         return view('checkout')->with([
-            'discount' => $this->getNumbers()->get('discount'),
-            'newSubtotal' => $this->getNumbers()->get('newSubtotal'),
-            'newTax' => $this->getNumbers()->get('newTax'),
-            'newTotal' => $this->getNumbers()->get('newTotal'),
+            'paypalToken' => $paypalToken,
+            'discount' => getNumbers()->get('discount'),
+            'newSubtotal' => getNumbers()->get('newSubtotal'),
+            'newTax' => getNumbers()->get('newTax'),
+            'newTotal' => getNumbers()->get('newTotal'),
         ]);
     }
 
@@ -34,6 +61,11 @@ class CheckoutController extends Controller
      */
     public function store(CheckoutRequest $request)
     {
+        // Check race condition when there are less items available to purchase
+        if ($this->productsAreNoLongerAvailable()) {
+            return back()->withErrors('Sorry! One of the items in your cart is no longer avialble.');
+        }
+
         $contents = Cart::content()->map(function ($item) {
             return $item->model->slug.', '.$item->qty;
         })->values()->toJson();
@@ -64,24 +96,39 @@ class CheckoutController extends Controller
 
             return redirect()->route('confirmation.index')->with('success_message', 'Thank you! Your payment has been successfully accepted!');
         } catch (CardErrorException $e) {
+            $this->addToOrdersTables($request, $e->getMessage());
             return back()->withErrors('Error! ' . $e->getMessage());
         }
     }
 
-    private function getNumbers()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function paypalCheckout(Request $request)
     {
-        $tax = config('cart.tax') / 100;
-        $discount = session()->get('coupon')['discount'] ?? 0;
-        $newSubtotal = (Cart::subtotal() - $discount);
-        $newTax = $newSubtotal * $tax;
-        $newTotal = $newSubtotal * (1 + $tax);
+        // Check race condition when there are less items available to purchase
+        if ($this->productsAreNoLongerAvailable()) {
+            return back()->withErrors('Sorry! One of the items in your cart is no longer avialble.');
+        }
 
-        return collect([
-            'tax' => $tax,
-            'discount' => $discount,
-            'newSubtotal' => $newSubtotal,
-            'newTax' => $newTax,
-            'newTotal' => $newTotal,
+        $gateway = new \Braintree\Gateway([
+            'environment' => config('services.braintree.environment'),
+            'merchantId' => config('services.braintree.merchantId'),
+            'publicKey' => config('services.braintree.publicKey'),
+            'privateKey' => config('services.braintree.privateKey')
+        ]);
+
+        $nonce = $request->payment_method_nonce;
+
+        $result = $gateway->transaction()->sale([
+            'amount' => round(getNumbers()->get('newTotal') / 100, 2),
+            'paymentMethodNonce' => $nonce,
+            'options' => [
+                'submitForSettlement' => true
+            ]
         ]);
 
         $transaction = $result->transaction;
@@ -175,6 +222,7 @@ class CheckoutController extends Controller
         return $order;
     }
  
+
     protected function decreaseQuantities()
     {
         foreach (Cart::content() as $item) {

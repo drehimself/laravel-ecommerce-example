@@ -1,0 +1,38 @@
+.my-orders {
+  .order-container {
+    margin-bottom: 64px;
+  }
+  .order-header {
+    background: #F6F6F6;
+    border: 1px solid #DDDDDD;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .order-products {
+    background: white;
+    border: 1px solid #DDDDDD;
+    border-top: none;
+    padding: 14px;
+  }
+
+  .order-header-items {
+    display: flex;
+
+    div {
+      margin-right: 14px;
+    }
+  }
+
+  .order-product-item {
+    display: flex;
+    margin: 32px 0;
+
+    img {
+      max-width: 140px;
+      margin-right: 24px;
+    }
+  }
+}
