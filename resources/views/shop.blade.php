@@ -41,7 +41,7 @@
                     <div class="product">
                         <a href="{{ route('shop.show', $product->slug) }}"><img src="{{ asset('img/products/'.$product->slug.'.jpg') }}" alt="product"></a>
                         <a href="{{ route('shop.show', $product->slug) }}"><div class="product-name">{{ $product->name }}</div></a>
-                        <div class="product-price">{{ $product->presentPrice() }}</div>
+                        <div class="product-price">{{ $product->presentPrice() }} تومان</div>
                     </div>
                 @empty
                     <div style="text-align: left">No items found</div>
