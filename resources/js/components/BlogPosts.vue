@@ -37,7 +37,8 @@ export default {
     axios.get("/api/posts").then(response => {
       this.posts = response.data;
       this.posts.forEach(p => {
-        p.image = `/img/${p.image}`;
+        p.image = `/storage/${p.image}`;
+        p.slug = `/post/${p.slug}`;
       });
     });
   },
