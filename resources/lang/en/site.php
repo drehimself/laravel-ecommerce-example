@@ -67,6 +67,17 @@ return [
     'AConfirmationEmailWasSent'                => 'ایمیل خود را چک کنید ایمیل حاوی اعتبارسنجی نهایی سفارش شما ارسال شد',
     'HomePage'                => 'خانه',
     'home'                => 'خانه',
+    
+    'search'           => [
+        'title'                => 'جستجو',
+        'searchresult'                => 'نتایج جستجو',
+        'count'                => 'در مجموع تعداد ',
+        'resultsfor'                => 'نتیجه از جستجوی عبارت  ',
+        'name'                => 'نام محصول',
+        'details'                => 'نتایج',
+        'description'                => 'توضیحات',
+        'price'                => 'قیمت',
+    ],
     'menu_titles'           => [
         'signup'                => 'عضویت',
         'login'                => 'ورود',

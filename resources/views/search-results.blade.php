@@ -9,9 +9,9 @@
 @section('content')
 
     @component('components.breadcrumbs')
-        <a href="/">Home</a>
-        <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span>Search</span>
+        <a href="/">{{ __('site.home') }}</a>
+        <i class="fa fa-chevron-right breadcrumb-separator"></i> >>
+        <span>{{ __('site.search.title') }}</span>
     @endcomponent
 
     <div class="container">
@@ -33,17 +33,17 @@
     </div>
 
     <div class="search-results-container container">
-        <h1>Search Results</h1>
-        <p class="search-results-count">{{ $products->total() }} result(s) for '{{ request()->input('query') }}'</p>
+        <h1>{{ __('site.search.searchresult') }}</h1>
+        <p class="search-results-count">{{ __('site.search.count') }} {{ $products->total() }} {{ __('site.search.resultsfor') }} '{{ request()->input('query') }}'</p>
 
         @if ($products->total() > 0)
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Details</th>
-                    <th>Description</th>
-                    <th>Price</th>
+                    <th>{{ __('site.search.name') }}</th>
+                    <th>{{ __('site.search.details') }}</th>
+                    <th>{{ __('site.search.description') }}</th>
+                    <th>{{ __('site.search.price') }}</th>
                 </tr>
             </thead>
             <tbody>
