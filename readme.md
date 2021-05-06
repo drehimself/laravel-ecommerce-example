@@ -60,3 +60,11 @@ If you would like to follow along from a particular point, follow these instruct
 1. Clone the repo and `cd` into it
 1. `git checkout f4f651a8a35ebb2ff38ba15771fd65c93051f942`
 1. Follow the rest of the steps above. Instead of `php artisan ecommerce:install`, migrate and seed the normal way with `php artisan migrate --seed`
+
+
+## npm run prod
+when you run npm run prod
+1. git move all your changes in public into server
+1. but your results in public_html and you need to copy them when you changes vuejs files
+1. so you need to overwrite them with laravel.bat
+1. by running  ./laravel.bat
