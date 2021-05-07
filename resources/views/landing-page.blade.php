@@ -22,10 +22,10 @@
                 <div class="top-nav container">
                     <div class="top-nav-left">
                         <div class="logo">{{ __('site.title') }}</div>
-                        {{ menu('main', 'partials.menus.main') }}
+                        <!-- {{ menu('main', 'partials.menus.main') }} -->
                     </div>
                     <div class="top-nav-right">
-                        @include('partials.menus.main-right')
+                        @include('partials.menus.main-right', ['items' => $items])
                     </div>
                 </div> <!-- end top-nav -->
                 <div class="hero container">

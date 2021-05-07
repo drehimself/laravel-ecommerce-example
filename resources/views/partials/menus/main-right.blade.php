@@ -7,8 +7,7 @@
         <a href="{{ route('users.edit') }}">{{ __('site.menu_titles.myaccount') }}</a>
     </li>
     <li>
-        <a href="{{ route('logout') }}"
-            onclick="event.preventDefault();
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
             {{ __('site.menu_titles.logout') }}
         </a>
@@ -19,20 +18,22 @@
     </form>
     @endguest
     <li><a href="{{ route('cart.index') }}">{{ __('site.menu_titles.cart') }}
-    @if (Cart::instance('default')->count() > 0)
-    <span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>
-    @endif
-    </a></li>
-    {{-- @foreach($items as $menu_item)
+            @if (Cart::instance('default')->count() > 0)
+            <span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>
+            @endif
+        </a></li>
+    @if (count($items))
+        @foreach($items as $menu_item)
         <li>
             <a href="{{ $menu_item->link() }}">
                 {{ $menu_item->title }}
-                @if ($menu_item->title === 'Cart')
+                @if ($menu_item->title === __('site.cart'))
                     @if (Cart::instance('default')->count() > 0)
-                    <span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>
+                        <span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>
                     @endif
                 @endif
             </a>
         </li>
-    @endforeach --}}
+        @endforeach
+    @endif
 </ul>
