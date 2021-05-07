@@ -19,33 +19,31 @@
                 </ul>
             </div>
             @endif
-            <h2>Reset Password</h2>
+            <h2>{{ __('site.resetpassword.resetpassword') }}</h2>
             <div class="spacer"></div>
             <form class="form-horizontal" method="POST" action="{{ route('password.request') }}">
                 {{ csrf_field() }}
 
                 <input type="hidden" name="token" value="{{ $token }}">
 
-                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" placeholder="Email" required autofocus>
+                <input id="email" type="email" class="form-control" name="email" value="{{ $email or old('email') }}" placeholder="{{ __('site.resetpassword.email') }}" required autofocus>
 
-                <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+                <input id="password" type="password" class="form-control" name="password" placeholder="{{ __('site.resetpassword.password') }}" required>
 
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="{{ __('site.resetpassword.confirmPassword') }}" required>
 
                 <div class="login-container">
-                    <button type="submit" class="auth-button">Reset Password</button>
+                    <button type="submit" class="auth-button">{{ __('site.resetpassword.resetPasswordButton') }}</button>
                 </div>
 
             </form>
         </div>
         <div class="auth-right">
-            <h2>Reset Password Information</h2>
+            <h2>{{ __('site.resetpassword.resetPasswordTitle') }}</h2>
             <div class="spacer"></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel dicta obcaecati exercitationem ut atque inventore
-                cum. Magni autem error ut!</p>
+            <p>{{ __('site.resetpassword.text1') }}</p>
             <div class="spacer"></div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vel accusantium quasi necessitatibus rerum fugiat eos,
-                a repudiandae tempore nisi ipsa delectus sunt natus!</p>
+            <p>{{ __('site.resetpassword.text2') }}</p>
         </div>
     </div>
 </div>
