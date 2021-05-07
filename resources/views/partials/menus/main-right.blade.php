@@ -17,15 +17,15 @@
         {{ csrf_field() }}
     </form>
     @endguest
-    <li><a href="{{ route('cart.index') }}">{{ __('site.menu_titles.cart') }}
+    <li style="margin-right:38px !important"><a href="{{ route('cart.index') }}">{{ __('site.menu_titles.cart') }}
             @if (Cart::instance('default')->count() > 0)
             <span class="cart-count"><span>{{ Cart::instance('default')->count() }}</span></span>
             @endif
         </a></li>
     @if (count($items))
         @foreach($items as $menu_item)
-        <li>
-            <a href="{{ $menu_item->link() }}">
+        <li style="margin-left:38px !important">
+            <a href="{{ $menu_item->link() }}" style="margin-left:38px !important">
                 {{ $menu_item->title }}
                 @if ($menu_item->title === __('site.cart'))
                     @if (Cart::instance('default')->count() > 0)
