@@ -68,3 +68,6 @@ when you run npm run prod
 1. but your results in public_html and you need to copy them when you changes vuejs files
 1. so you need to overwrite them with laravel.bat
 1. by running  ./laravel.bat
+
+##  fork
+You can Fork this project and modify files
