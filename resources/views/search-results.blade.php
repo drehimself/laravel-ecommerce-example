@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Search Results')
+@section('title', __('site.search.searchresult'))
 
 @section('extra-css')
     <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">

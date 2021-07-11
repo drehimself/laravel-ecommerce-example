@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'My Order')
+@section('title', __('site.user_page.order_details'))
 
 @section('extra-css')
     <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
@@ -9,9 +9,9 @@
 @section('content')
 
     @component('components.breadcrumbs')
-        <a href="/">Home</a>
+        <a href="/">{{ __("site.home") }}</a>
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
-        <span>My Order</span>
+        <span>{{ __('site.user_page.order_details') }}</span>
     @endcomponent
 
     <div class="container">
@@ -36,13 +36,13 @@
         <div class="sidebar">
 
             <ul>
-              <li><a href="{{ route('users.edit') }}">My Profile</a></li>
-              <li class="active"><a href="{{ route('orders.index') }}">My Orders</a></li>
+              <li><a href="{{ route('users.edit') }}">{{ __('site.user_page.my_profile') }}</a></li>
+              <li class="active"><a href="{{ route('orders.index') }}">{{ __('site.user_page.my_orders') }}</a></li>
             </ul>
         </div> <!-- end sidebar -->
         <div class="my-profile">
             <div class="products-header">
-                <h1 class="stylish-heading">Order ID: {{ $order->id }}</h1>
+                <h1 class="stylish-heading">{{__('site.user_page.order_id')}}: {{ $order->id }}</h1>
             </div>
 
             <div>
@@ -50,20 +50,20 @@
                     <div class="order-header">
                         <div class="order-header-items">
                             <div>
-                                <div class="uppercase font-bold">{{ __('site.orderPlaced') }}</div>
+                                <div class="uppercase font-bold">{{__('site.user_page.order_placed_at')}}</div>
                                 <div>{{ presentDate($order->created_at) }}</div>
                             </div>
                             <div>
-                                <div class="uppercase font-bold">{{ __('site.orderID') }}</div>
+                                <div class="uppercase font-bold">{{ __('site.user_page.order_id') }}</div>
                                 <div>{{ $order->id }}</div>
                             </div><div>
-                                <div class="uppercase font-bold">{{ __('site.total') }}</div>
+                                <div class="uppercase font-bold">{{__('site.user_page.order_total')}}</div>
                                 <div>{{ presentPrice($order->billing_total) }}</div>
                             </div>
                         </div>
                         <div>
                             <div class="order-header-items">
-                                <div><a href="#">{{ __('site.invoice') }}</a></div>
+                                <div><a href="#">{{__('site.user_page.order_invoice')}}</a></div>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
                     <div class="order-header">
                         <div class="order-header-items">
                             <div>
-                                Order Items
+                                {{__('site.user_page.order_items')}}
                             </div>
 
                         </div>
@@ -118,7 +118,7 @@
                                         <a href="{{ route('shop.show', $product->slug) }}">{{ $product->name }}</a>
                                     </div>
                                     <div>{{ presentPrice($product->price) }}</div>
-                                    <div>Quantity: {{ $product->pivot->quantity }}</div>
+                                    <div>{{__('site.user_page.order_quantity')}}: {{ $product->pivot->quantity }}</div>
                                 </div>
                             </div>
                         @endforeach
