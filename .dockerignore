@@ -1,0 +1,7 @@
+.*
+Dockerfile
+docker-compose.yml
+LICENSE
+#vendor
+*.md
+laravel.bat

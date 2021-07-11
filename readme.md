@@ -12,7 +12,31 @@ Website Demo: [https://laravelecommerceexample.ca](https://laravelecommerceexamp
 
 ## Installation
 
-1. Clone the repo and `cd` into it   git clone     `https://github.com/saber13812002/laravel-ecommerce-example.git`
+You have 2 options for installation:
+
+### OPTION#1: installing as docker containers
+#### PreRequirements
+- If you are using Windows or MacOS You must install `Docker Desktop` on your system
+- If you are using Linux or MacOS You must have `Docker Engine` and `Docker Compose` on your system
+- visit [docker documents](https://docs.docker.com/get-docker/) for more information
+#### Installation
+1. make an empty directory everywhere you want => `mkdir -p shop`
+1. Clone the repo => run   `git clone https://github.com/saber13812002/laravel-ecommerce-example.git`
+1. go to project directory => run `cd laravel-ecommerce-example`
+1. make .env file and review its variables => `cp .env.example .env`
+1. run `docker-compose up -d`
+1. wait for minutes to initializing databse (only at firsttime)
+#### Usage
+1. enter `http://localhost:8000` to see the shop's homepage
+1. enter `http://localhost:8080` to see the shop's database
+   - you can use `DB_DATABASE`, `DB_USERNAME` and `DB_PASSWORD` for login to phpmyadmin
+1. enter http://localhost:8000/admin if you want to access the `Laravel-Admin.org admin backend`.
+   - Admin User/Password: `admin/admin`
+1. enter http://localhost:8000/admin2 if you want to access the `Voyager admin backend`.
+   - Admin email/password: `admin@admin.com/password`.
+   - Admin Web email/password: `adminweb@adminweb.com/password`
+### OPTION#2: traditional approach
+1. Clone the repo and `cd` into it   `git clone https://github.com/saber13812002/laravel-ecommerce-example.git`
 1. `composer install`
 1. Rename or copy `.env.example` file to `.env`  =>  `cp .env.example .env`
 1. `php artisan key:generate`
