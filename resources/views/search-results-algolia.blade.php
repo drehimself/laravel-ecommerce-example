@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Search Results Algolia')
+@section('title', __('site.search.searchresult'))
 
 @section('extra-css')
     <link rel="stylesheet" href="{{ asset('css/algolia.css') }}">
@@ -11,7 +11,7 @@
 @section('content')
 
     @component('components.breadcrumbs')
-        <a href="/">Home</a>
+        <a href="/">{{ __("site.home") }}</a>
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
         <span>Search</span>
     @endcomponent
@@ -37,7 +37,7 @@
     <div class="container">
         <div class="search-results-container-algolia">
             <div>
-                <h2>Search</h2>
+                <h2>{{__('site.search.title')}}</h2>
                 <div id="search-box">
                     <!-- SearchBox widget will appear here -->
                 </div>
@@ -45,7 +45,7 @@
                 <div id="stats-container"></div>
 
                 <div class="spacer"></div>
-                <h2>Categories</h2>
+                <h2>{{__('site.search.categories')}}</h2>
                 <div id="refinement-list">
                     <!-- RefinementList widget will appear here -->
                 </div>
