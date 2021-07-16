@@ -50,8 +50,8 @@
                 <div class="container">
                     <h1 class="text-center">{{ __('site.mainpage.body.title') }}</h1>
 
-                    <p class="section-description">{{ __('site.mainpage.body.description') }}</p>
-
+                    <p class="section-description">{{ trans('site.mainpage.body.description') }}</p>
+<!-- 
                     <div class="tabs">
                         <div class="tab">
                             پیشنهاد شده
@@ -59,7 +59,7 @@
                         <div class="tab">
                             موجود
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="products text-center">
                         @foreach ($products as $product)

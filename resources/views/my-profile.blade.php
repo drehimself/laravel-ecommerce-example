@@ -9,7 +9,11 @@
 @section('content')
 
     @component('components.breadcrumbs')
+<<<<<<< Updated upstream
         <a href="/">{{ __("site.home") }}</a>
+=======
+        <a href="/">{{__('site.home')}}</a>
+>>>>>>> Stashed changes
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
         <span>{{ __('site.user_page.my_profile') }}</span>
     @endcomponent
