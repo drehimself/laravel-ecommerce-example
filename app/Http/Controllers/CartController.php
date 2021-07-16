@@ -18,29 +18,35 @@ class CartController extends Controller
     {
         $mightAlsoLike = Product::mightAlsoLike()->get();
 
-        return view('cart')->with('mightAlsoLike', $mightAlsoLike);
+        return view('cart')->with([
+            'mightAlsoLike' => $mightAlsoLike,
+            'discount' => getNumbers()->get('discount'),
+            'newSubtotal' => getNumbers()->get('newSubtotal'),
+            'newTax' => getNumbers()->get('newTax'),
+            'newTotal' => getNumbers()->get('newTotal'),
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Product $product)
     {
-        $duplicates = Cart::search(function ($cartItem, $rowId) use ($request) {
-            return $cartItem->id === $request->id;
+        $duplicates = Cart::search(function ($cartItem, $rowId) use ($product) {
+            return $cartItem->id === $product->id;
         });
 
         if ($duplicates->isNotEmpty()) {
-            return redirect()->route('cart.index')->with('success_message', 'Item is already in your cart!');
+            return redirect()->route('cart.index')->with('success_message', trans('site.itemIsAlreadyInYourCart') . '!');
         }
 
-        Cart::add($request->id, $request->name, 1, $request->price)
+        Cart::add($product->id, $product->name, 1, $product->price)
             ->associate('App\Product');
 
-        return redirect()->route('cart.index')->with('success_message', 'Item was added to your cart!');
+        return redirect()->route('cart.index')->with('success_message', trans('site.itemWasAddedToYourCart') . '!');
     }
 
     /**
@@ -61,6 +67,11 @@ class CartController extends Controller
             return response()->json(['success' => false], 400);
         }
 
+        if ($request->quantity > $request->productQuantity) {
+            session()->flash('errors', collect(['We currently do not have enough items in stock.']));
+            return response()->json(['success' => false], 400);
+        }
+
         Cart::update($id, $request->quantity);
         session()->flash('success_message', 'Quantity was updated successfully!');
         return response()->json(['success' => true]);
@@ -76,7 +87,7 @@ class CartController extends Controller
     {
         Cart::remove($id);
 
-        return back()->with('success_message', 'Item has been removed!');
+        return back()->with('success_message', trans('site.itemHasBeenRemoved') . '!');
     }
 
     /**

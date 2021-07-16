@@ -1,0 +1,29 @@
+.text-center {
+    text-align: center;
+}
+
+.spacer {
+    margin-bottom: 30px;
+}
+
+.sticky-footer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.full-width {
+  width: 100%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.font-bold {
+  font-weight: bold;
+}

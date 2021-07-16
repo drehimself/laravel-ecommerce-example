@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -25,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -35,5 +36,39 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        session()->put('previousUrl', url()->previous());
+
+        return view('auth.login');
+    }
+
+    // override logout so cart contents remain:
+    // https://github.com/Crinsane/LaravelShoppingcart/issues/253
+    public function logout(Request $request)
+    {
+        $cart = collect(session()->get('cart'));
+
+        $destination = \Auth::logout();
+
+        if (!config('cart.destroy_on_logout')) {
+            $cart->each(function ($rows, $identifier) {
+                session()->put('cart.' . $identifier, $rows);
+            });
+        }
+
+        return redirect()->to($destination);
+    }
+
+    public function redirectTo()
+    {
+        return str_replace(url('/'), '', session()->get('previousUrl', '/'));
     }
 }
