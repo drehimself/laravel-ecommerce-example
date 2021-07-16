@@ -11,11 +11,7 @@
 @section('content')
 
     @component('components.breadcrumbs')
-<<<<<<< Updated upstream
         <a href="/">{{ __("site.home") }}</a>
-=======
-        <a href="/">{{__('site.home')}}</a>
->>>>>>> Stashed changes
         <i class="fa fa-chevron-right breadcrumb-separator"></i>
         <span>Search</span>
     @endcomponent
